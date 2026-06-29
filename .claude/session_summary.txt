@@ -1,1 +1,1 @@
-2nd paperのnotebookから実数値（1280薬剤・385遺伝子・InChIKey-ATC ChEMBL）を確認し、3rd paper M&Mの改訂版を提示
+glycoepitope.jp・CAZy・KEGGの3DBをdictionary構築とM&M記述に活用する方針を整理した
