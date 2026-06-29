@@ -1,1 +1,1 @@
-スライドをBackground/Methods/Results/Discussionのセクション区切り付き11枚構成に再編した。project-linksスキルも更新。
+スライド編集時のフォントサイズ制限（本文18pt以上、7行以内）をproject-linksスキルに追記した。
