@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 /Users/koreedatatsuya/research/glyco_epitope_3rd_paper/.claude/hooks/log-to-obsidian.py"
+          }
+        ]
+      }
+    ]
+  }
+}

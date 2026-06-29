@@ -1,0 +1,19 @@
+name: glyco-epitope-3rd
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - jupyterlab=4.*
+  - numpy
+  - pandas
+  - scipy
+  - matplotlib
+  - seaborn
+  - scikit-learn
+  - statsmodels
+  - h5py
+  - biopython
+  - conda-lock
+  - pip
+  - pip:
+      - polars

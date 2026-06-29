@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# conda / env
+.conda/
+*.lock
+
+# Data (raw data stays local / on Snowflake)
+data/raw/
+data/processed/
+
+# Large output files
+results/figures/*.png
+results/figures/*.pdf
+results/figures/*.svg
+results/tables/*.csv
+results/tables/*.tsv
+results/tables/*.xlsx
+
+# Obsidian app config
+.obsidian/
+
+# Claude Code local settings (contains machine-specific paths)
+.claude/settings.local.json
+.claude/skills
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Editor
+.vscode/
+*.swp
+*.swo
+
+# Secrets / credentials
+*.env
+.env
+secrets/
+credentials/
+*.pem
+*.key
+snowflake_config*
