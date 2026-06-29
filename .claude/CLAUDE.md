@@ -102,7 +102,21 @@ drug-induced transcriptome
 
 `XX_概要.ipynb`（連番プレフィックス）— 2nd paperの慣例に従う。
 
+## Obsidianノート編集ルール
+
+- デイリーノートに**勝手に見出し（##）を追加しない**。既存のセクション内に書くこと。
+- ユーザーが明示的に「見出しを追加して」と言った場合のみ追加可。
+
 ## Obsidian作業ログ
 
 Stop hookによりセッション終了時にObsidianのデイリーノートへ自動ログが記録される。
-ログの内容（作業サマリー）は**必ず日本語**で記述すること。
+
+**Claude への指示**: 各会話の最後の応答で、必ず以下を実行すること：
+
+```python
+# .claude/session_summary.txt に日本語サマリーを書き込む（1〜2行）
+with open("/Users/koreedatatsuya/research/glyco_epitope_3rd_paper/.claude/session_summary.txt", "w") as f:
+    f.write("今日やったこと（日本語で簡潔に）")
+```
+
+Bash toolで上記を実行し、その会話で行った作業を日本語1〜2行でまとめて書くこと。hookはこのファイルを読んでノートに記録する。

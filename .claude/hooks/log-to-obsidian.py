@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Stop hook: logs Claude Code actions to today's Obsidian note."""
+"""Stop hook: logs Claude Code session summary to today's Obsidian note."""
 import json
 import sys
 import os
@@ -13,6 +13,7 @@ except Exception:
 VAULT_DIR = "/Users/koreedatatsuya/research/glyco_epitope_3rd_paper"
 NOTES_DIR = os.path.join(VAULT_DIR, "notes")
 TEMPLATE_PATH = os.path.join(NOTES_DIR, "templates", "daily.md")
+SUMMARY_PATH = os.path.join(VAULT_DIR, ".claude", "session_summary.txt")
 
 today = date.today()
 today_str = today.strftime("%Y-%m-%d")
@@ -36,37 +37,13 @@ if not os.path.exists(note_path):
     except Exception:
         pass
 
-# Extract last user message from transcript as summary
+# Read summary written by Claude at end of session
 summary = ""
-transcript_path = hook_input.get("transcript_path", "")
-if transcript_path and os.path.exists(transcript_path):
+if os.path.exists(SUMMARY_PATH):
     try:
-        messages = []
-        with open(transcript_path) as f:
-            for line in f:
-                line = line.strip()
-                if line:
-                    try:
-                        messages.append(json.loads(line))
-                    except Exception:
-                        pass
-        for msg in reversed(messages):
-            # Handle both flat {"role":...} and nested {"message":{"role":...}}
-            role = msg.get("role") or (msg.get("message") or {}).get("role", "")
-            if role != "user":
-                continue
-            content = msg.get("content") or (msg.get("message") or {}).get("content", "")
-            # contentがリストの場合、tool_resultブロックのみのメッセージはスキップ
-            if isinstance(content, list):
-                text_blocks = [b for b in content if isinstance(b, dict) and b.get("type") == "text"]
-                tool_result_blocks = [b for b in content if isinstance(b, dict) and b.get("type") == "tool_result"]
-                if tool_result_blocks and not text_blocks:
-                    continue  # ツール結果返却メッセージはスキップ
-                content = text_blocks[0].get("text", "") if text_blocks else ""
-            text = str(content).strip().split("\n")[0][:120]
-            if text and not text.startswith("<"):
-                summary = text
-                break
+        with open(SUMMARY_PATH) as f:
+            summary = f.read().strip().split("\n")[0][:200]
+        os.remove(SUMMARY_PATH)
     except Exception:
         pass
 
