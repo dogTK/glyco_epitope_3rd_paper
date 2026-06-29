@@ -6,11 +6,11 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python3 /Users/koreedatatsuya/research/glyco_epitope_3rd_paper/.claude/hooks/log-to-obsidian.py"
+            "command": "bash /Users/koreedatatsuya/research/glyco_epitope_3rd_paper/.claude/hooks/git-commit-push.sh"
           },
           {
             "type": "command",
-            "command": "bash /Users/koreedatatsuya/research/glyco_epitope_3rd_paper/.claude/hooks/git-commit-push.sh"
+            "command": "python3 /Users/koreedatatsuya/research/glyco_epitope_3rd_paper/.claude/hooks/log-to-obsidian.py"
           }
         ]
       }
