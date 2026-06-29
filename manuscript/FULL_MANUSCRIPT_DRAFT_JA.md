@@ -30,9 +30,7 @@ Keywords: glyco-epitope / glycosylation / hepatocellular carcinoma / drug respon
 
 薬剤応答という観点から glycogene を解析した研究では、様々な化合物が HCC 細胞の glycogene 発現を大規模に変動させることが示されてきた[@angata_2020_frontoncol] [@koreeda_2024_glycoconjj] [@martinez-morales_2021_peerj]。しかしこれらの研究は主に個別遺伝子あるいは特定の機能経路に焦点を当てており、「薬剤誘導性 glycogene プログラムが、どの glyco-epitope の提示可能性をどの程度変化させるか」という glyco-epitope ポテンシャルとしての問いへの変換は行われていない。すなわち、薬剤処理によって誘導される転写変化が、細胞表面の glyco-epitope 空間にどのように対応するか、また、その結果としてレクチン・抗体・glycan-reader による検出や標的化可能性（glyco-targetability）がどのように変化するかは、未解明の問題として残っている。
 
-この問いに答えるための基盤として、LINCS L1000 プロジェクトが提供する大規模薬剤応答トランスクリプトームデータ[@subramanian_2017_cell] [@keenan_2018_cels]と、CycleGAN による genome-wide 発現推定[@jeon_2022_bmcbioinformatics]は、glycogene 群を網羅的に解析する上で有力なリソースである。私たちはすでに、LINCS L1000 を用いた HCC 細胞における薬剤誘導性 glycogene 共発現モジュール解析（2nd paper: 投稿中）において、glycogene 応答が機能的モジュールとして組織化されることを示しており、本研究はその知見を glyco-epitope ポテンシャルという新たな軸へと拡張する。
-
-本研究では、HCC 細胞株（HepG2）の薬剤誘導性転写プロファイルを基に、glyco-epitope の生合成に必要な glycogene 群・対応するレクチン/抗体を体系的に対応付けた glyco-targetability dictionary を構築し、各薬剤の glyco-epitope potential スコアを算出することで薬剤・MoA 横断の全体マップを構築した。さらに、特定エピトープスコアを変動させる薬剤群の MoA/ATC 富化を評価し、AFP-L3/コアフコース・STn・Lewis・galectin 軸など HCC 固有の糖鎖エピトープ文脈との接続を示す。本研究は、「薬剤が HCC 細胞の glyco-epitope 標的性・検出可能性を再配線しうる」という視点から、糖鎖バイオマーカー・レクチン検出・抗体医薬開発に資する情報基盤を提供するものである。
+本研究では、LINCS L1000 プロジェクトが提供する大規模薬剤応答トランスクリプトームデータ[@subramanian_2017_cell] [@keenan_2018_cels]と CycleGAN による genome-wide 発現推定[@jeon_2022_bmcbioinformatics]を基盤として、HCC 細胞株（HepG2）における薬剤誘導性転写プロファイルから glyco-epitope potential を体系的に推定した。私たちはすでに同データセットを用いた glycogene 共発現モジュール解析（2nd paper: 投稿中）において、薬剤処理による glycogene 応答が機能的モジュールとして組織化されることを示しており、本研究はその知見を glyco-epitope ポテンシャルという新たな軸へと拡張するものである。具体的には、glyco-epitope の生合成に必要な glycogene 群・対応するレクチン/抗体を対応付けた glyco-targetability dictionary を構築し、各薬剤の glyco-epitope potential スコアを算出することで薬剤・MoA 横断の全体マップを構築した。さらに、特定エピトープスコアを変動させる薬剤群の MoA/ATC 富化を評価し、AFP-L3/コアフコース・STn・Lewis・galectin 軸など HCC 固有の糖鎖エピトープ文脈との接続を示す。本研究は、「薬剤が HCC 細胞の glyco-epitope 標的性・検出可能性を再配線しうる」という視点から、糖鎖バイオマーカー・レクチン検出・抗体医薬開発に資する情報基盤を提供するものである。
 
 ---
 
