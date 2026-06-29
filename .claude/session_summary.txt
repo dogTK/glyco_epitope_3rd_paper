@@ -1,0 +1,1 @@
+/parallel-research skill追加、hookのgit add対象を.claude/全体に拡張、commit push完了
