@@ -56,13 +56,15 @@ if transcript_path and os.path.exists(transcript_path):
             if role != "user":
                 continue
             content = msg.get("content") or (msg.get("message") or {}).get("content", "")
+            # contentがリストの場合、tool_resultブロックのみのメッセージはスキップ
             if isinstance(content, list):
-                for block in content:
-                    if isinstance(block, dict) and block.get("type") == "text":
-                        content = block.get("text", "")
-                        break
+                text_blocks = [b for b in content if isinstance(b, dict) and b.get("type") == "text"]
+                tool_result_blocks = [b for b in content if isinstance(b, dict) and b.get("type") == "tool_result"]
+                if tool_result_blocks and not text_blocks:
+                    continue  # ツール結果返却メッセージはスキップ
+                content = text_blocks[0].get("text", "") if text_blocks else ""
             text = str(content).strip().split("\n")[0][:120]
-            if text and not text.startswith("<"):  # skip XML-like tool results
+            if text and not text.startswith("<"):
                 summary = text
                 break
     except Exception:
