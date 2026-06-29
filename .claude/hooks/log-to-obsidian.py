@@ -47,8 +47,9 @@ if os.path.exists(SUMMARY_PATH):
     except Exception:
         pass
 
+# サマリーがなければ記録しない（毎ターン発火するので空エントリを避ける）
 if not summary:
-    summary = "(作業完了)"
+    sys.exit(0)
 
 # Append log line under ## 作業ログ section
 time_str = datetime.now().strftime("%H:%M")

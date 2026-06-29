@@ -111,12 +111,10 @@ drug-induced transcriptome
 
 Stop hookによりセッション終了時にObsidianのデイリーノートへ自動ログが記録される。
 
-**Claude への指示**: 各会話の最後の応答で、必ず以下を実行すること：
+**Claude への指示**: **毎回の応答の最後**に必ずBash toolで以下を実行すること（ユーザーへの返答のみで作業をしていない場合は省略可）：
 
-```python
-# .claude/session_summary.txt に日本語サマリーを書き込む（1〜2行）
-with open("/Users/koreedatatsuya/research/glyco_epitope_3rd_paper/.claude/session_summary.txt", "w") as f:
-    f.write("今日やったこと（日本語で簡潔に）")
+```bash
+echo "やったことの日本語サマリー（1行）" > /Users/koreedatatsuya/research/glyco_epitope_3rd_paper/.claude/session_summary.txt
 ```
 
-Bash toolで上記を実行し、その会話で行った作業を日本語1〜2行でまとめて書くこと。hookはこのファイルを読んでノートに記録する。
+hookはこのファイルを読んでノートに記録する。ファイルがない場合は記録しない（フォールバックなし）。
