@@ -1,1 +1,1 @@
-glycoepitope.jp・CAZy・KEGGの3DBをdictionary構築とM&M記述に活用する方針を整理した
+GlycoEpitope.jpとGlycoEnzOntoの2DBをdictionary構築に使う方針を決定、M&M記述文案を整理した
