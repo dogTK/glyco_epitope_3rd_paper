@@ -1,1 +1,1 @@
-/parallel-research skill追加、hookのgit add対象を.claude/全体に拡張、commit push完了
+スライドをBackground/Methods/Results/Discussionのセクション区切り付き11枚構成に再編した。project-linksスキルも更新。
