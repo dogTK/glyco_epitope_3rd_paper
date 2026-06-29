@@ -101,3 +101,8 @@ drug-induced transcriptome
 ## ノートブック命名規則
 
 `XX_概要.ipynb`（連番プレフィックス）— 2nd paperの慣例に従う。
+
+## Obsidian作業ログ
+
+Stop hookによりセッション終了時にObsidianのデイリーノートへ自動ログが記録される。
+ログの内容（作業サマリー）は**必ず日本語**で記述すること。
