@@ -49,7 +49,7 @@ glyco_epitope_3rd_paper/
 drug-induced transcriptome
   → glycogene program
   → predicted glyco-epitope potential
-  → lectin / antibody / biomarker / glycan-reader axis
+  → lectin / antibody / biomarker / glycan-binding protein axis
   → glyco-targetability
 ```
 
@@ -73,7 +73,7 @@ drug-induced transcriptome
 **外部データ使用目的**:
 - HCCでのcarrier protein・reader発現確認
 - 正常肝との差異
-- HCC TMEにglycan-reader陽性細胞の存在確認
+- HCC TMEにglycan-binding protein陽性細胞の存在確認
 - HCC糖鎖バイオマーカー文脈への接続
 
 ## Wet validation（最小構成）

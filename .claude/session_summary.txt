@@ -1,1 +1,1 @@
-スライド6（データと解析フロー）のタイトル追加（24pt）・本文の誤字修正（遷→遺伝子、抗→抽出）を完了
+glycan-reader → glycan-binding protein に全3箇所置換（manuscript/FULL_MANUSCRIPT_DRAFT_JA.md × 1、.claude/CLAUDE.md × 2）

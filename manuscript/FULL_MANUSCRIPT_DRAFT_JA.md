@@ -22,7 +22,7 @@ Keywords: glyco-epitope / glycosylation / hepatocellular carcinoma / drug respon
 
 ## Introduction
 
-細胞表面の糖鎖構造は、タンパク質・脂質に付加される翻訳後修飾の中でも特に多様性が高く、細胞間認識、シグナル伝達、免疫応答において中心的な役割を果たす[@varki_1993_glycobiology] [@varki_2017_glycobiology] [@reily_2019_natrevnephrol]。糖鎖が形成する特定の構造単位は糖鎖エピトープ（glyco-epitope）と呼ばれ、レクチン、抗体、糖鎖結合タンパク質（glycan-reader）に認識される分子インターフェースとして機能する。これらの glyco-epitope はバイオマーカー検出、抗糖鎖抗体、抗体医薬の標的として活用されており[@munkley_2016_oncotarget] [@narimatsu_2019_cell]、診断・治療の双方から注目を集めている。
+細胞表面の糖鎖構造は、タンパク質・脂質に付加される翻訳後修飾の中でも特に多様性が高く、細胞間認識、シグナル伝達、免疫応答において中心的な役割を果たす[@varki_1993_glycobiology] [@varki_2017_glycobiology] [@reily_2019_natrevnephrol]。糖鎖が形成する特定の構造単位はglyco-epitopeと呼ばれ、レクチン、抗体、糖鎖結合タンパク質（glycan-binding protein）に認識される分子インターフェースとして機能する。これらの glyco-epitope はバイオマーカー検出、抗糖鎖抗体、抗体医薬の標的として活用されており[@munkley_2016_oncotarget] [@narimatsu_2019_cell]、診断・治療の双方から注目を集めている。
 
 糖鎖エピトープの形成は、糖転移酵素・糖鎖分解酵素・ヌクレオチド糖代謝酵素などをコードする糖鎖関連遺伝子群（glycogene）の協調的な発現によって制御される[@he_2024_sigtransducttargetther] [@schjoldager_2020_natrevmolcellbiol]。特定の glyco-epitope が細胞表面に提示されるかは関与する複数の glycogene の同時発現に依存するため、glyco-epitope の提示ポテンシャルは個々の酵素遺伝子の発現よりも、glycogene 群が形成する転写プログラムの観点から評価する必要がある。
 
