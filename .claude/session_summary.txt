@@ -1,1 +1,1 @@
-MediumのSnowflake IaC記事のレビューフィードバック4点（provider小文字化・バージョン修正・private_key_path→private_key・公式サポート注記追加）をブラウザ操作で修正した
+MediumのSnowflake IaC記事の査読フィードバック4点への対応を説明する返信メール文案を作成した
