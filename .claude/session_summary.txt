@@ -1,1 +1,1 @@
-introスライドにCC-BY文献の図3点を引用挿入（Slide3:Zhang2022レクチンアレイ／Slide4新設:He2024糖鎖修飾概念図／Slide5:Jeon2022 CycleGANパイプライン、各出典キャプション付き）。Sato2022 AFP-L3はDOIが別論文を指す引用ミスのため未挿入
+introスライド用に各先行研究の図番号を実物確認して確定（He2024 Fig2/4、Wang2023 Fig2/Table1、Zhang2022 Fig1、Jeon2022 Fig1、Subramanian2017 Fig1A）し、CC-BY再利用可否を併記した
