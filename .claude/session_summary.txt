@@ -1,1 +1,1 @@
-CREEDS疾患シグネチャをSnowflake RAW.CREEDSへ取り込み完了（raw828/meta828/genes490686/ヒト向けビュー293034行）。DOID付695・ヒト555・スポット一致を検証し、Fig3a再現ノートのStep2をSnowflake参照へ差し替えた
+Fig3a設計を確定（ChEMBLマッピング/薬剤=化合物平均/疾患平均/978∩CREEDS共通遺伝子）し手順書に記録。疾患軸クロスワークを実装しビューRAW.CREEDS.VW_FIG3A_APPROVED_DRUG_MAP（41疾患89薬剤130ペア、がん負/免疫正を両含）を構築、ノート・手順書を更新した
