@@ -1,1 +1,1 @@
-CREEDS疾患シグネチャ(disease_signatures-v1.0.json, 828件/DOID付695/ヒト555)の実体を確認し、Snowflake RAW.CREEDSへ取り込む計画(raw VARIANT→META→GENESロングの3層、stage+COPY+FLATTEN)をdocs/plan_creeds_to_snowflake.mdに作成した
+CREEDS疾患シグネチャをSnowflake RAW.CREEDSへ取り込み完了（raw828/meta828/genes490686/ヒト向けビュー293034行）。DOID付695・ヒト555・スポット一致を検証し、Fig3a再現ノートのStep2をSnowflake参照へ差し替えた
