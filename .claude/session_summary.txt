@@ -1,1 +1,1 @@
-npj Syst Biol Appl 2022論文のFig3（薬剤-疾患regulome相関のboxplot＋TFエンリッチメントradial plot）再現手順書を docs/repro_regulome_fig3.md に作成した
+Fig3a再現手順書をtranscriptome版のみに絞り、notebooks/validation/01_repro_fig3a.ipynb雛形を作成。SnowflakeのRAW.LINCSを探索しL1000_LEVEL5_LANDMARK（薬剤x_trans）とCOMPOUND_TO_INDICATION（承認薬マッピング）を特定、手順書とノートに反映した
