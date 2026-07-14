@@ -2,7 +2,7 @@
 
 目的: Fig.3a再現の疾患シグネチャ `y_trans`（Snowflakeに未整備）を `RAW.CREEDS` として取り込む。
 
-関連: `docs/repro_regulome_fig3.md`, `notebooks/validation/01_repro_fig3a.ipynb`
+関連: `docs/repro_regulome_fig3.md`, `notebooks/reproduction/01_repro_fig3a.ipynb`
 
 ---
 
@@ -134,7 +134,7 @@ WHERE m.organism = 'human' AND m.do_id IS NOT NULL;
 - [x] 行数チェック: raw=828, human=555 / mouse=215 / rat=58, do_id付き=695, distinct do_id=235（ヒト178）
 - [x] `DISEASE_SIGNATURE_GENES` が (signature_id, gene, value, direction) で引ける（全490,686行 / ヒット293,034行）
 - [x] スポット1件一致: `dz:328`（Duchenne muscular dystrophy）up=202/down=396 がJSON原本と一致
-- [x] `notebooks/validation/01_repro_fig3a.ipynb` Step2 を Snowflake `RAW.CREEDS` 参照に差し替え
+- [x] `notebooks/reproduction/01_repro_fig3a.ipynb` Step2 を Snowflake `RAW.CREEDS` 参照に差し替え
 
 ### 作成物
 

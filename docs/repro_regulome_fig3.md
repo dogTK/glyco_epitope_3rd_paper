@@ -133,7 +133,7 @@ ax.set_xlabel('Disease'); ax.set_ylabel('Cosine correlation')
 
 ## 5. 検証チェックリスト — 実行済み 2026-07-14
 
-実装: `notebooks/validation/01_repro_fig3a.ipynb`（実体スクリプト検証済み）。出力: `results/figures/fig3a_repro.png`, `results/tables/fig3a_repro_correlations.csv`。
+実装: `notebooks/reproduction/01_repro_fig3a.ipynb`（実体スクリプト検証済み）。出力: `results/figures/fig3a_repro.png`, `results/tables/fig3a_repro_correlations.csv`。
 
 - [x] 共通遺伝子数 = **784**（論文≈848。organism=human・L1000列との積集合）
 - [x] 描画疾患 = **41**、薬剤89、ペア130（論文46-48に近い）
@@ -145,6 +145,22 @@ ax.set_xlabel('Disease'); ax.set_ylabel('Cosine correlation')
 Fig3a（**transcriptomeベース**）は相関がほぼ0付近に集中し、がん負/免疫正の明瞭な分離は出ない。これは**論文の主張と整合**する：強い分離（がん−0.9〜−0.5、免疫+0.47〜+0.87）は **Fig3b以降のregulomeベース**で初めて現れるものであり、「transcriptomeでは弱い→だからregulomeを導入する」というのが論文のロジック。したがって本再現（3aのみ）の"弱い相関"は失敗ではなく期待どおり。強い分離を見たい場合はregulome変換（3b、本手順の範囲外）が必要。
 
 補足: top/bottom 5%で薄くした薬剤ベクトル（978中約49非ゼロ）と疾患DE遺伝子ベクトルは、共通784遺伝子上で非ゼロ位置の重なりが小さくcosineが0付近になりやすい。これも3aが弱く見える構造的要因。
+
+---
+
+## 6. glycogene版バリアント（2026-07-15）
+
+実装: `notebooks/reproduction/02_glycogene_fig3a.ipynb`。出力: `results/figures/fig3a_glycogene.png`, `results/tables/fig3a_glycogene_correlations.csv`。
+
+同じ枠組みで**遺伝子空間を glycogene に限定**した版。
+
+- 薬剤側: `RAW.LINCS.GLYCO_GENES_WIDE`（薬剤プロファイル × glycogene 推定発現, 385遺伝子）を化合物ごとに平均。**top/bottom 5%閾値なし**（既に絞ったパネルのため）。
+- 疾患側: CREEDS(do_id平均) を同 glycogene に制限。
+- 共通 glycogene = **247**。41疾患130ペア。
+
+結果: cosine中央値は cancer +0.016 / immune +0.022 / other +0.007。**がん負/免疫正の分離は出ない**（landmark版3aと同様、transcriptomeレベルのcosineでは弱い）。疾患順位はlandmark版と別物になり、glioblastoma/GERD/MSが最も負、obesity/tuberculosis/melanomaが最も正。
+
+> 解釈: glycogeneに絞っても transcriptome-cosine のままでは分離しない。3rd paperで「効かせる」には、glycogene発現→glyco-epitope potential への射影（scoring）や、regulome的な集約軸が必要という示唆。単純な遺伝子部分集合化では不十分。
 
 ---
 

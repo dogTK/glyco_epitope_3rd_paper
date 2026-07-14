@@ -1,1 +1,1 @@
-自動commit/pushフックのgit add対象にdocs/とnotebooks/を追加（従来は取りこぼしていた新規ファイルを今後は自動追跡）。あわせて今回のdocs/notebooks成果物を手動commit&pushで反映した
+notebooks/validationをreproductionにリネーム。glycogene版Fig3a(02_glycogene_fig3a.ipynb)を実装・実行：GLYCO_GENES_WIDEの385遺伝子×CREEDS共通247で41疾患130ペアのcosine算出。がん+0.016/免疫+0.022と分離出ず、単純な遺伝子部分集合化ではtranscriptome-cosineは効かないことを確認。docs参照パス更新・手順書に結果追記
