@@ -1,1 +1,1 @@
-introスライド用に各先行研究の図番号を実物確認して確定（He2024 Fig2/4、Wang2023 Fig2/Table1、Zhang2022 Fig1、Jeon2022 Fig1、Subramanian2017 Fig1A）し、CC-BY再利用可否を併記した
+npj Syst Biol Appl 2022 'Regulome-based characterization of drug activity across the human diseasome'（LINCS L1000×regulome創薬リポジショニング論文）を読み、3rd paperとの関連（LINCS起点・機能軸投影の先行例、糖鎖記述なしで差別化可能）を整理した
