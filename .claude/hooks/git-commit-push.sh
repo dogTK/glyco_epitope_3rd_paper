@@ -19,7 +19,7 @@ if git diff --quiet && git diff --cached --quiet && [ -z "$(git ls-files --other
 fi
 
 git add -u
-git add manuscript/ notes/ scripts/ inputs/ .claude/ 2>/dev/null || true
+git add manuscript/ notes/ scripts/ inputs/ docs/ notebooks/ .claude/ 2>/dev/null || true
 
 if ! git diff --cached --quiet; then
     git commit -m "$commit_msg" \

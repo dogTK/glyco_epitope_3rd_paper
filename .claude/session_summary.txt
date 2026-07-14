@@ -1,1 +1,1 @@
-Fig3a再現を実装・実行完了。SnowflakeからL1000薬剤(化合物平均→top/bottom5%)・CREEDS疾患(do_id平均)・承認薬ビューを取得しcosine算出、41疾患130ペア共通遺伝子784でboxplot出力(results/figures/fig3a_repro.png)。transcriptomeは相関ほぼ0で分離弱く論文の主張(regulomeで初めて分離)と整合。ノート01_repro_fig3a.ipynbに実コード反映
+自動commit/pushフックのgit add対象にdocs/とnotebooks/を追加（従来は取りこぼしていた新規ファイルを今後は自動追跡）。あわせて今回のdocs/notebooks成果物を手動commit&pushで反映した
