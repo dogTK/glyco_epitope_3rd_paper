@@ -1,1 +1,1 @@
-用語「reader」を全docから「認識分子」に置換（docs/glycoepitope_dictionary.md 2箇所、CLAUDE.md 2箇所）。今後も使わないようメモリに記録
+ここまでの作業を引き継ぎ用にdocs/HANDOFF.mdへ集約（先行研究Fig3a再現・glycogene版・CREEDS/GLYCOEPITOPEスキーマ・成果物・オープン項目・環境注意点）
