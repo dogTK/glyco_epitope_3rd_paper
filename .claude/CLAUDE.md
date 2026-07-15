@@ -59,7 +59,7 @@ drug-induced transcriptome
 ## 想定Figure構成
 
 - **Fig 1**: 研究コンセプト — LINCS drug response → glycogene program → glyco-epitope potential → glyco-targetability
-- **Fig 2**: glyco-targetability dictionary — エピトープ × biosynthesis genes × lectin/antibody/biomarker/reader 対応表
+- **Fig 2**: glyco-targetability dictionary — エピトープ × biosynthesis genes × lectin/antibody/biomarker/認識分子 対応表
 - **Fig 3**: 薬剤ごとの epitope potential heatmap — drug/MoA × glyco-epitope score
 - **Fig 4**: MoA/ATC enrichment — 特定エピトープスコア上位薬剤に濃縮するMoA/ATC
 - **Fig 5**: HCC文脈への接続 — core fucose/AFP-L3-like、STn/TACA、Lewis/selectin、galectin/poly-LacNAcなどの drug-epitope-modality network
@@ -71,7 +71,7 @@ drug-induced transcriptome
 **外部データ候補**: TCGA-LIHC、HCC scRNA-seq、CPTAC、既存HCC glycomics/lectin array文献
 
 **外部データ使用目的**:
-- HCCでのcarrier protein・reader発現確認
+- HCCでのcarrier protein・認識分子(レクチン/抗体等)発現確認
 - 正常肝との差異
 - HCC TMEにglycan-binding protein陽性細胞の存在確認
 - HCC糖鎖バイオマーカー文脈への接続

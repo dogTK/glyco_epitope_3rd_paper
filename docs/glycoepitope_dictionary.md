@@ -1,6 +1,6 @@
 # glyco-epitope 辞書（Snowflake `RAW.GLYCOEPITOPE`）
 
-3rd paper Fig2「glyco-targetability dictionary（epitope × 生合成遺伝子 × reader）」の基盤データ。
+3rd paper Fig2「glyco-targetability dictionary（epitope × 生合成遺伝子 × 認識分子）」の基盤データ。
 出所: GlycoEpitope DB (https://www.glycoepitope.jp)。
 
 ## 背景（2026-07-15 時点の状況）
@@ -48,6 +48,6 @@ HGNC対応表: `scripts/glycoepitope_hgnc_crosswalk.py`（下記マップ）
 
 ## 未対応（今後）
 
-- **Antibody / Lectin / Diseases 軸**: 同じ要領で `/epitopes/{ID}/antibody`, `/lectin`, `/diseases` から取得予定（Fig2の reader 軸）。
+- **Antibody / Lectin / Diseases 軸**: 同じ要領で `/epitopes/{ID}/antibody`, `/lectin`, `/diseases` から取得予定（Fig2の 認識分子軸＝レクチン/抗体等）。
 - review 7件の確定。
 - 117エピトープはglycoepitope.jp上でenzyme記載なし（サイト側の欠損）。

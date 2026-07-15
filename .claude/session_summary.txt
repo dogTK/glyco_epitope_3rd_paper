@@ -1,1 +1,1 @@
-glycoepitope酵素名のHGNC正規化を実施。EC番号を根拠に41名中32をHGNC割当(review7/nonhuman2)、RAW.GLYCOEPITOPE.ENZYME_HGNC_CROSSWALKとVW_EPITOPE_GLYCOGENE作成。マップした30遺伝子は全てLINCS glycogeneに存在し47エピトープが連結可能。scripts/とdocs/glycoepitope_dictionary.mdに記録
+用語「reader」を全docから「認識分子」に置換（docs/glycoepitope_dictionary.md 2箇所、CLAUDE.md 2箇所）。今後も使わないようメモリに記録
