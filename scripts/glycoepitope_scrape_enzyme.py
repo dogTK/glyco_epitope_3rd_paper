@@ -3,7 +3,7 @@ epitope → 生合成/分解 酵素（遺伝子名・EC・CAZy・反応式）を
 
 出力: RAW.GLYCOEPITOPE.EPITOPE_ENZYME（Snowflake）
 
-- 対象エピトープIDは Snowflake の RAW.LINCS.GLYCOEPITOPE_EPITOPES から取得（173件）。
+- 対象エピトープIDは Snowflake の RAW.GLYCOEPITOPE.EPITOPES から取得（173件）。
 - glycoepitope.jp は一括APIが無いため、各 /epitopes/{ID}/enzyme のHTMLを解析。
 - レート制限（sleep=0.6s）を入れて丁寧に取得。
 
@@ -61,7 +61,7 @@ def parse_enzyme(epid, html):
 def main():
     con = sc.connect(database='RAW', schema='GLYCOEPITOPE', **SF)
     ids = [r[0] for r in con.cursor().execute(
-        "SELECT EPITOPE_ID FROM RAW.LINCS.GLYCOEPITOPE_EPITOPES ORDER BY EPITOPE_ID").fetchall()]
+        "SELECT EPITOPE_ID FROM RAW.GLYCOEPITOPE.EPITOPES ORDER BY EPITOPE_ID").fetchall()]
     print(f"scraping enzyme tab for {len(ids)} epitopes...", file=sys.stderr)
 
     rows = []

@@ -5,7 +5,8 @@
 
 ## 背景（2026-07-15 時点の状況）
 
-- エピトープ一覧は既に `RAW.LINCS.GLYCOEPITOPE_EPITOPES`（**173件**、EP番号・糖鎖配列・構造フラグ）に存在。
+- エピトープ一覧（**173件**、EP番号・糖鎖配列・構造フラグ）は `RAW.GLYCOEPITOPE.EPITOPES` に配置。
+  - もとは `RAW.LINCS.GLYCOEPITOPE_EPITOPES` にあったが、glyco-epitope辞書の一部なので 2026-07-22 に `RAW.GLYCOEPITOPE` へ clone して移設（旧LINCS側の同名テーブルは互換のため当面残置）。
 - 旧 epitope→遺伝子軸マッピング（`VW_GLYCOEPITOPE_AXIS_GENES` 等）は、消失した `BIOINFORMATICS` DB を参照して**壊れている**。
 - そこで **Enzyme 軸を再取得**し、新スキーマ `RAW.GLYCOEPITOPE` に整備した。
 
@@ -13,9 +14,10 @@
 
 | オブジェクト | 種別 | 内容 |
 |-------------|------|------|
+| `EPITOPES` | TABLE | エピトープ一覧173件（EP番号・EPITOPE_NAME・糖鎖配列・HAS_FUCOSE等の構造フラグ）。`RAW.LINCS.GLYCOEPITOPE_EPITOPES` からclone移設 |
 | `EPITOPE_ENZYME` | TABLE | epitope→酵素。56エピトープ/56行（biosynthetic 55, degradation 1）、遺伝子名41種。列: EPITOPE_ID, ENZYME_ROLE, GENE_SYMBOL(生名), EC, CAZY, REACTION, DESCRIPTION |
 | `ENZYME_HGNC_CROSSWALK` | TABLE | 酵素生名→HGNC。41行。列: GENE_SYMBOL_RAW, HGNC_SYMBOL, MAPPING_METHOD, CONFIDENCE |
-| `VW_EPITOPE_GLYCOGENE` | VIEW | 上2つをjoin。epitope→HGNC glycogene（EC/CAZy/method/confidence付き） |
+| `VW_EPITOPE_GLYCOGENE` | VIEW | 上3つをjoin。epitope→HGNC glycogene。列: EPITOPE_ID, **EPITOPE_NAME**, ENZYME_ROLE, GENE_SYMBOL_RAW, HGNC_SYMBOL, MAPPING_METHOD, CONFIDENCE, EC, CAZY |
 
 スクレイパー: `scripts/glycoepitope_scrape_enzyme.py`（enzymeタブ、レート制限付き）
 HGNC対応表: `scripts/glycoepitope_hgnc_crosswalk.py`（下記マップ）
