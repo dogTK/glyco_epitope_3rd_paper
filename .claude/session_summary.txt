@@ -1,1 +1,1 @@
-enzymeスクレイパーのパーサバグ修正で辞書を大幅充実(56→113行,41→69酵素,合成経路全酵素を取得)、HGNC対応表をEC根拠で拡充し30→54遺伝子・連結49エピトープに。docも更新しcommit&push
+Snowflake CoCoハンズオン記事にKevinさんからのフィードバック(pip install前提条件・Container Runtimeロール制限)を反映しarticle.md/README.mdを修正
