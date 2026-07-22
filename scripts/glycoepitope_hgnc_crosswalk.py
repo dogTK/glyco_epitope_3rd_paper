@@ -9,19 +9,37 @@ SF = dict(account='DUETMBM-LL33279', user='KOREEDA', role='ACCOUNTADMIN',
 
 # 高〜中確信のHGNC割当（名前＋EC番号を根拠に確認）。曖昧なものは入れない=review。
 ALIAS = {
-    'FUT3': 'FUT3', 'FUT7': 'FUT7', 'FUT9': 'FUT9',
-    'GAL3ST1': 'GAL3ST1', 'Gal3ST3': 'GAL3ST3', 'NDST-1': 'NDST1',
-    'ST6Gal I': 'ST6GAL1', 'ST3Gal I': 'ST3GAL1', 'ST3Gal IV': 'ST3GAL4',
-    'ST3Gal V': 'ST3GAL5', 'ST6GalNAc I': 'ST6GALNAC1', 'ST6GalNAc VI': 'ST6GALNAC6',
-    'ST8Sia I': 'ST8SIA1', 'ST8Sia IV': 'ST8SIA4', 'ST8Sia V': 'ST8SIA5',
-    'O-GlcNAcT': 'OGT', 'Beta3GlcT': 'B3GLCT', 'Forssman synthase': 'GBGT1',
-    'core 1 beta1-3Gal-T': 'C1GALT1', 'Alpha4Gal-T1': 'A4GALT', 'a4Gal-T': 'A4GALT',
+    # --- フコース転移酵素（名前がそのままHGNCシンボル） ---
+    'FUT1': 'FUT1', 'FUT2': 'FUT2', 'FUT3': 'FUT3', 'FUT4': 'FUT4',
+    'FUT5': 'FUT5', 'FUT6': 'FUT6', 'FUT7': 'FUT7', 'FUT9': 'FUT9',
+    # --- シアル酸転移酵素（ローマ数字→アラビア数字, EC 2.4.99系で確認） ---
+    'ST6Gal I': 'ST6GAL1', 'ST3Gal I': 'ST3GAL1', 'ST3Gal III': 'ST3GAL3',  # 2.4.99.6
+    'ST3Gal IV': 'ST3GAL4', 'ST3Gal V': 'ST3GAL5',
+    'ST6GalNAc I': 'ST6GALNAC1', 'ST6GalNAc V': 'ST6GALNAC5', 'ST6GalNAc VI': 'ST6GALNAC6',
+    'ST8Sia I': 'ST8SIA1', 'ST8Sia II': 'ST8SIA2', 'ST8Sia IV': 'ST8SIA4', 'ST8Sia V': 'ST8SIA5',
+    # --- ガラクトース転移酵素 ---
     'Beta3Gal-T4': 'B3GALT4', 'Beta3Gal-T5': 'B3GALT5',
+    'Beta4Gal-T1': 'B4GALT1', 'Beta4Gal-T2': 'B4GALT2', 'Beta4Gal-T3': 'B4GALT3',
     'Beta4Gal-T4': 'B4GALT4', 'Beta4Gal-T6': 'B4GALT6',
-    'GalNAc-T': 'B4GALNT1',            # EC 2.4.1.92 = GM2/GD2 synthase
-    'CST': 'GAL3ST1',                  # cerebroside sulfotransferase EC 2.8.2.11
+    'core 1 beta1-3Gal-T': 'C1GALT1',
+    'Alpha4Gal-T1': 'A4GALT', 'a4Gal-T': 'A4GALT',
+    # --- 硫酸基転移酵素 ---
+    'GAL3ST1': 'GAL3ST1', 'Gal3ST2': 'GAL3ST2', 'Gal3ST3': 'GAL3ST3',
+    'NDST-1': 'NDST1', 'GlcNAc6ST-1': 'CHST2',   # GlcNAc6ST-1 = CHST2
     'HNK-1 ST': 'CHST10',             # medium
-    'HEC-GlcNAc6ST': 'CHST4',         # medium
+    'HEC-GlcNAc6ST': 'CHST4',         # medium (GlcNAc6ST-2)
+    'CST': 'GAL3ST1',                 # cerebroside sulfotransferase EC 2.8.2.11
+    # --- グルクロン酸転移酵素（HNK-1骨格, EC 2.4.1.135, GT43） ---
+    'GlcAT-P': 'B3GAT1', 'GlcAT-S': 'B3GAT2',
+    # --- ヘパラン硫酸伸長（EC 2.4.1.224） ---
+    'Exostosin-1': 'EXT1', 'Exostosin-2': 'EXT2',
+    # --- O-Man / O-Fuc 経路 ---
+    'POMT1': 'POMT1', 'POMT2': 'POMT2', 'POMGnT1': 'POMGNT1',
+    'O-FucT-1': 'POFUT1', 'O-FucT-2': 'POFUT2',   # EC 2.4.1.221
+    # --- その他 ---
+    'O-GlcNAcT': 'OGT', 'Beta3GlcT': 'B3GLCT', 'Forssman synthase': 'GBGT1',
+    'GalNAc-T': 'B4GALNT1',            # EC 2.4.1.92 = GM2/GD2 synthase
+    'ChSy-1(CSS1)': 'CHSY1',           # EC 2.4.1.226, CSS1 = CHSY1
 }
 # 括弧内にHGNCを含むもの（正規表現で抽出）: C4ST-1 (CHST11), C6ST-2(CHST7), ChSy-3(CSGlcAT)
 PAREN_OVERRIDE = {'ChSy-3(CSGlcAT)': 'CHSY3'}  # CSGlcAT の括弧内はHGNCでないため明示
@@ -58,14 +76,17 @@ print(xw['MAPPING_METHOD'].value_counts().to_string())
 print("\nreview対象（要確認）:")
 print(xw[xw.MAPPING_METHOD=='review']['GENE_SYMBOL_RAW'].to_string(index=False))
 
-# epitope→hgnc ビュー
+# epitope→hgnc ビュー（EPITOPE_NAME も付与、辞書スキーマ内で完結）
 cur.execute("""
 CREATE OR REPLACE VIEW RAW.GLYCOEPITOPE.VW_EPITOPE_GLYCOGENE AS
-SELECT e.EPITOPE_ID, e.ENZYME_ROLE, e.GENE_SYMBOL AS GENE_SYMBOL_RAW,
+SELECT e.EPITOPE_ID, ep.EPITOPE_NAME, e.ENZYME_ROLE,
+       e.GENE_SYMBOL AS GENE_SYMBOL_RAW,
        x.HGNC_SYMBOL, x.MAPPING_METHOD, x.CONFIDENCE, e.EC, e.CAZY
 FROM RAW.GLYCOEPITOPE.EPITOPE_ENZYME e
 LEFT JOIN RAW.GLYCOEPITOPE.ENZYME_HGNC_CROSSWALK x
   ON e.GENE_SYMBOL = x.GENE_SYMBOL_RAW
+LEFT JOIN RAW.GLYCOEPITOPE.EPITOPES ep
+  ON e.EPITOPE_ID = ep.EPITOPE_ID
 """)
 
 # LINCS glycogene カバレッジ

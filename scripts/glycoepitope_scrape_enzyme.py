@@ -32,29 +32,48 @@ SF = dict(account='DUETMBM-LL33279', user='KOREEDA', role='ACCOUNTADMIN',
 
 
 def parse_enzyme(epid, html):
+    """1エピトープの enzyme タブから全酵素を抽出。
+
+    サイトは複数酵素を1テーブル内に縦積み（1酵素 = 'Name' 行から始まる複数行ブロック）
+    にしている。'Name' th が出るたびに新しい酵素ブロックを開始してflushする。
+    （旧実装は1テーブル=1辞書に潰し、同キー上書きで最後の酵素しか残さないバグがあった）
+    """
     soup = BeautifulSoup(html, "html.parser")
-    rows, role = [], None
+    blocks, role = [], None
     for el in soup.find_all(["h3", "table"]):
         if el.name == "h3":
             t = el.get_text(" ", strip=True).lower()
             role = ("biosynthetic" if "biosynthetic enzyme" in t
                     else "degradation" if "degradation enzyme" in t else None)
         elif el.name == "table" and role is not None:
-            d = {}
+            cur = None
             for tr in el.find_all("tr"):
                 th, td = tr.find("th"), tr.find("td")
-                if th and td:
-                    d[th.get_text(" ", strip=True)] = td.get_text(" ", strip=True)
-            name = d.get("Name", "").strip()
-            if not name:
-                continue
-            cazy = ",".join(re.findall(r"CAZy:\s*([A-Z]{2}\d+)", d.get("DB", ""))) or None
-            rows.append(dict(
-                EPITOPE_ID=epid, ENZYME_ROLE=role, GENE_SYMBOL=name,
-                EC=(d.get("EC", "").replace("EC", "").strip() or None),
-                CAZY=cazy, REACTION=(d.get("Reaction") or None),
-                DESCRIPTION=(d.get("Description") or None),
-            ))
+                if not (th and td):
+                    continue
+                key = th.get_text(" ", strip=True)
+                val = td.get_text(" ", strip=True)
+                if key == "Name":
+                    if cur and cur.get("Name"):
+                        blocks.append((role, cur))
+                    cur = {"Name": val}
+                elif cur is not None:
+                    cur[key] = val
+            if cur and cur.get("Name"):
+                blocks.append((role, cur))
+
+    rows = []
+    for role, d in blocks:
+        name = d.get("Name", "").strip()
+        if not name:
+            continue
+        cazy = ",".join(re.findall(r"CAZy:\s*([A-Z]{2}\d+)", d.get("DB", ""))) or None
+        rows.append(dict(
+            EPITOPE_ID=epid, ENZYME_ROLE=role, GENE_SYMBOL=name,
+            EC=(d.get("EC", "").replace("EC", "").strip() or None),
+            CAZY=cazy, REACTION=(d.get("Reaction") or None),
+            DESCRIPTION=(d.get("Description") or None),
+        ))
     return rows
 
 
