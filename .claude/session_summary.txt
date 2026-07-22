@@ -1,1 +1,1 @@
-Snowflake CoCoハンズオン記事にKevinさんからのフィードバック(pip install前提条件・Container Runtimeロール制限)を反映しarticle.md/README.mdを修正
+49連結エピトープの主要ファミリー網羅性を確認(Lewis/selectin・ganglioside全系列・globo・STn/T・HS/CS完備)。ただしwet validation本命のcore fucose(FUT8)がglycoepitope.jpに無く要手動補完と判明
