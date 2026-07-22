@@ -1,1 +1,1 @@
-シグネチャー逆位法ノートに初学者向け解説(内積・ベクトルの長さ・コサイン)を追記し手動commit&push。自動commit/pushフックの有効性も確認
+エピトープ一覧をRAW.GLYCOEPITOPE.EPITOPESへclone移設しVW_EPITOPE_GLYCOGENEをEPITOPE_NAME入りで再作成、スクレイパー/辞書docの参照先も更新しcommit&push
