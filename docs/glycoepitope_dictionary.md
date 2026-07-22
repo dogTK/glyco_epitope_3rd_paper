@@ -6,7 +6,7 @@
 ## 背景（2026-07-15 時点の状況）
 
 - エピトープ一覧（**173件**、EP番号・糖鎖配列・構造フラグ）は `RAW.GLYCOEPITOPE.EPITOPES` に配置。
-  - もとは `RAW.LINCS.GLYCOEPITOPE_EPITOPES` にあったが、glyco-epitope辞書の一部なので 2026-07-22 に `RAW.GLYCOEPITOPE` へ clone して移設（旧LINCS側の同名テーブルは互換のため当面残置）。
+  - もとは `RAW.LINCS.GLYCOEPITOPE_EPITOPES` にあったが、glyco-epitope辞書の一部なので 2026-07-22 に `RAW.GLYCOEPITOPE.EPITOPES` へ clone 移設し、**旧LINCS側の同名テーブルはDROP済み**。
 - 旧 epitope→遺伝子軸マッピング（`VW_GLYCOEPITOPE_AXIS_GENES` 等）は、消失した `BIOINFORMATICS` DB を参照して**壊れている**。
 - そこで **Enzyme 軸を再取得**し、新スキーマ `RAW.GLYCOEPITOPE` に整備した。
 
@@ -48,8 +48,15 @@ HGNC対応表: `scripts/glycoepitope_hgnc_crosswalk.py`（下記マップ）
 - `PMT-1`（酵母, EP0003 O-Mannosyl/Yeast）
 - `Heparitinase(Flavobacterium heparinum)`（細菌）
 
+## カバレッジと限界（epitope potential 設計時の注意）
+
+ファネル: 173エピトープ → 56(glycoepitope.jpに酵素記載) → 47(HGNC割当) → 30 distinct HGNC遺伝子。
+
+- `VW_EPITOPE_GLYCOGENE` は 56行 = 56 distinct epitope、つまり **1エピトープ ≒ 酵素1個**しか入っていない。
+  実際は複数酵素が逐次的に働く経路が多く、**合成経路の一部（代表酵素）しか捉えていない**。potential計算はこの割り切りの上に立つ。
+
 ## 未対応（今後）
 
 - **Antibody / Lectin / Diseases 軸**: 同じ要領で `/epitopes/{ID}/antibody`, `/lectin`, `/diseases` から取得予定（Fig2の 認識分子軸＝レクチン/抗体等）。
-- review 7件の確定。
-- 117エピトープはglycoepitope.jp上でenzyme記載なし（サイト側の欠損）。
+- review 7件の確定（→ 連結エピトープ増）。
+- 117エピトープはglycoepitope.jp上でenzyme記載なし（サイト側の欠損）。KEGG/GlyGen/CAZy等で酵素補完し「1エピトープ1酵素」も緩和したい。
