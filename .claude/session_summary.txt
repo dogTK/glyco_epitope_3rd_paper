@@ -1,1 +1,1 @@
-49連結エピトープの主要ファミリー網羅性を確認(Lewis/selectin・ganglioside全系列・globo・STn/T・HS/CS完備)。ただしwet validation本命のcore fucose(FUT8)がglycoepitope.jpに無く要手動補完と判明
+キュレーション補完エピトープ(FUT8/MGAT3/MGAT5/poly-LacNAc/Tn)の論文用論拠をdocs/epitope_supplement_rationale.mdに整理。データソースの構造的な穴・選定基準・個別根拠・catalog vs curatedの区別・要引用TODOを記載
