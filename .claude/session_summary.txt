@@ -1,1 +1,1 @@
-HCC本丸: core fucose(FUT8)/bisecting(MGAT3)/branching(MGAT5)を辞書に手動追加(52ep化)。notebooks/analytics/02でHepG2の承認薬がcore fucoseを増減するか順位付け→AAL/LCA wet候補リスト(実薬名/ATC/MoA)を出力
+エピトープ空間reversal2種: ①HCC(HepG2)-正常(PHH)差の射影で承認薬の正常化reversalをperm_p=0.005で有意検出(δはcore fucose/分岐/GD2がHCC上昇=既知生物学整合)、②Fig3a疾患ごとboxplotをエピトープ空間で再現
