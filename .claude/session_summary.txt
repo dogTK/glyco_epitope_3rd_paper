@@ -1,1 +1,1 @@
-検証A実施: epitope射影で薬-疾患分離するか検証→否定的(epitope空間はp≈1で有意でなく全て正=reversal無し)。epitope potentialは疾患マッチングでなくtargetabilityで売るべきと実データで確認。notebooks/reproduction/03に記録
+HCC本丸: core fucose(FUT8)/bisecting(MGAT3)/branching(MGAT5)を辞書に手動追加(52ep化)。notebooks/analytics/02でHepG2の承認薬がcore fucoseを増減するか順位付け→AAL/LCA wet候補リスト(実薬名/ATC/MoA)を出力
