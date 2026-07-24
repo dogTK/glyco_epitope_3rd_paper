@@ -120,6 +120,14 @@ epitope potential は「発現の単純和」ではなく、**経路構造を反
 
 `XX_概要.ipynb`（連番プレフィックス）— 2nd paperの慣例に従う。
 
+## 解析の実装形態：notebook 優先
+
+**解析・スコア計算・作図は原則 notebook（`notebooks/`）で実装する。単発の `scripts/*.py` は作らない。**
+- 理由：途中結果を目で確認しながら進めたい／再現と共有がしやすい。
+- `scripts/` はデータ取得・ETL・Snowflakeロード等のバッチ処理に限定。
+- 既存の `scripts/build_epitope_step_gene.py` 等（辞書ETL）は scripts のままでよいが、
+  epitope potential のスコア計算・可視化は notebook 化する。
+
 ## Obsidianノート編集ルール
 
 - デイリーノートに**勝手に見出し（##）を追加しない**。既存のセクション内に書くこと。
