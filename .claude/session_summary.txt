@@ -1,1 +1,1 @@
-/paper-valueに「薬でエピトープが変わるとなぜ薬理・創薬に繋がるか」の名文を追記(skill+docs/paper_value.md)。細胞表面インターフェース→検出/標的/発見/抑制の4回路への接続ロジックを明文化
+検証A実施: epitope射影で薬-疾患分離するか検証→否定的(epitope空間はp≈1で有意でなく全て正=reversal無し)。epitope potentialは疾患マッチングでなくtargetabilityで売るべきと実データで確認。notebooks/reproduction/03に記録
