@@ -1,1 +1,1 @@
-検証(否定的): epitope逆位の疾患ごと承認薬recovery AUROCはtranscriptome(0.503)/glycogene(0.452)/epitope(0.520)で全てランダム級、ep-tx差+0.031 p=0.26で有意でなく「遥かに高精度」は棄却。有意なのはHCC↔正常の状態正常化(03,perm_p=0.005)のみ→主張はHCC状態正常化に絞るべき
+全トランスクリプトーム対照でHCC正常reversal構造化がglyco固有でない(全tx/glyco/epitope全てperm_p=0.002)ことを確認、dryの統計優位は棄却しwetが勝ち筋と設計書に記録
