@@ -96,6 +96,15 @@ O-GalNAc 開始で生じるが、**病的な蓄積は多くの場合 COSMC (C1GA
 特に **poly-LacNAc・Tn の遺伝子割当は一意な生合成事実ではなくモデリング選択**である点を
 limitation として述べる。core fucose/bisecting/β1,6分岐は単一遺伝子で曖昧性が小さい。
 
+## 5b. 実装状況（2026-07-24）
+
+Tier1（FUT8/MGAT3/MGAT5）を `RAW.GLYCOEPITOPE` に手動キュレーションでロード済み：
+- `EPITOPES` に MAN0001=Core Fucose(FUT8/AFP-L3), MAN0002=Bisecting GlcNAc(MGAT3), MAN0003=β1,6分岐(MGAT5)
+- `EPITOPE_ENZYME` に `SOURCE='manual_curation'`（EC/CAZy付与）、crosswalk ALIASにHGNC自己マップ追加
+- crosswalk/VIEW/EPITOPE_STEP_GENE 再構築済み → 辞書は 52エピトープ/57遺伝子
+- 解析: `notebooks/analytics/02_hcc_core_fucose.ipynb`（HepG2で承認薬の上げ下げ）
+- Tier2（poly-LacNAc/Tn）は未実装（要議論フラグのまま保留）。
+
 ## 5. 実装方針（次アクション）
 
 - `RAW.GLYCOEPITOPE.EPITOPE_ENZYME` に手動行を追加（`SOURCE='manual_curation'`, `ENZYME_ROLE='biosynthetic'`,

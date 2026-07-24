@@ -40,6 +40,10 @@ ALIAS = {
     'O-GlcNAcT': 'OGT', 'Beta3GlcT': 'B3GLCT', 'Forssman synthase': 'GBGT1',
     'GalNAc-T': 'B4GALNT1',            # EC 2.4.1.92 = GM2/GD2 synthase
     'ChSy-1(CSS1)': 'CHSY1',           # EC 2.4.1.226, CSS1 = CHSY1
+    # --- HCC本命の手動キュレーション（構造クラス, 単一遺伝子）。docs/epitope_supplement_rationale.md ---
+    'FUT8': 'FUT8',                    # core fucose (N型α1,6), AFP-L3
+    'MGAT3': 'MGAT3',                  # bisecting GlcNAc (GnT-III)
+    'MGAT5': 'MGAT5',                  # β1,6分岐 (GnT-V)
 }
 # 括弧内にHGNCを含むもの（正規表現で抽出）: C4ST-1 (CHST11), C6ST-2(CHST7), ChSy-3(CSGlcAT)
 PAREN_OVERRIDE = {'ChSy-3(CSGlcAT)': 'CHSY3'}  # CSGlcAT の括弧内はHGNCでないため明示
