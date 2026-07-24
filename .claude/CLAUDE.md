@@ -56,6 +56,24 @@ drug-induced transcriptome
 疾患治療効果を直接主張するのではなく、
 「HCC細胞の糖鎖エピトープ標的性・検出可能性・細胞表面インターフェースを薬剤で再配線しうる」という落とし方にする。
 
+## epitope potential の計算方針（GlycoEnzOnto + GlycoMaple）
+
+epitope potential は「発現の単純和」ではなく、**経路構造を反映したスコアリング**で算出する。
+詳細設計は `docs/epitope_potential_design.md`。要点のみ：
+
+```
+エピトープ辞書(3rd,自作 VW_EPITOPE_GLYCOGENE)
+  → 遺伝子を GlycoEnzOnto 経路で「反応ステップ」に分割
+  → LINCS発現変化 × GlycoMapleロジック（ステップ内max × ステップ間min）
+  → epitope potential
+```
+
+- **GlycoMaple**：集約ロジックのみ採用（isoenzyme=max, 律速=min）。web専用でAPI/DL無し。引用 Huang et al., Dev Cell 2021。
+- **GlycoEnzOnto**：経路/反応データを再利用。**`../lincs_glyco_2nd_paper/inputs/GlycoEnzOnto/` に配置済み（CC-BY-4.0、帰属必須）**。
+  `glycoenzonto_pathways.json`（gene↔pathway）・`ruleProcess/`（反応ルール, v3の分岐競合用）・`finishedGlycogenes.xlsx`・LINCS coverage csv。引用 Groth et al., Bioinformatics 2022。
+- 3rd paperの47エピトープ由来54遺伝子は GlycoEnzOnto 412遺伝子に **100%含まれる**（照合済み）。
+- v2=内max×間min が本命、v3で分岐競合（MGAT3⊣MGAT5 等）を減点。
+
 ## 想定Figure構成
 
 - **Fig 1**: 研究コンセプト — LINCS drug response → glycogene program → glyco-epitope potential → glyco-targetability
