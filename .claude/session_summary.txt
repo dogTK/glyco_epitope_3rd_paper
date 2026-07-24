@@ -1,1 +1,1 @@
-epitope potentialにコントラスト(全化合物平均基準)を導入。素potentialは分離せずだったが中心化で各エピトープの上げる薬/下げる薬がz±4〜6で明確に分離(例Lewis y=GP-1a z+6.2)。薬→糖鎖標的性の読み出しが成立
+解析notebook優先の方針をCLAUDE.mdに明記。epitope potential計算+ヒートマップをnotebooks/analytics/01_epitope_potential.ipynbに実装・実行(HEPG2,コントラストで上げ下げ薬が分離,heatmap出力)。旧scoring script2本は削除
