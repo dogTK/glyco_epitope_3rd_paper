@@ -1,1 +1,1 @@
-論文価値のNorth Starを/paper-value skillとして作成(いつでも呼出可)、同内容をgit管理のdocs/paper_value.mdにもバックアップ保存
+/paper-valueに「薬でエピトープが変わるとなぜ薬理・創薬に繋がるか」の名文を追記(skill+docs/paper_value.md)。細胞表面インターフェース→検出/標的/発見/抑制の4回路への接続ロジックを明文化
