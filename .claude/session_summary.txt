@@ -1,1 +1,1 @@
-解析notebook優先の方針をCLAUDE.mdに明記。epitope potential計算+ヒートマップをnotebooks/analytics/01_epitope_potential.ipynbに実装・実行(HEPG2,コントラストで上げ下げ薬が分離,heatmap出力)。旧scoring script2本は削除
+epitope potential notebookに承認薬フィルタ追加(2nd paperのChEMBL/ATCマスター結合,MAX_PHASE>=4の456化合物,BRD→実薬名)。承認薬ヒートマップ・上げ薬top10(名前/ATC/MoA)・ATC分布を収録し実行
