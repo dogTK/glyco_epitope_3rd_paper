@@ -1,1 +1,1 @@
-epitope potential計算方針を設計書(docs/epitope_potential_design.md)にまとめCLAUDE.mdへ追記。GlycoEnzOntoで反応ステップ分割→LINCS×GlycoMapleロジック(内max×間min)、47ep由来54遺伝子のGlycoEnzOnto100%カバーを記録
+epitope potential v2をHEPG2でエンドツーエンド試作。GlycoEnzOntoのstep構造でstep内max×step間min→薬剤×49エピトープ行列を算出。パイプライン成立、値は小さくtranscriptome弱シグナル継続で次はコントラスト対比/v3が課題
