@@ -1,1 +1,1 @@
-全トランスクリプトーム対照でHCC正常reversal構造化がglyco固有でない(全tx/glyco/epitope全てperm_p=0.002)ことを確認、dryの統計優位は棄却しwetが勝ち筋と設計書に記録
+方針転換をdocs化: signature-reversalを放棄しtargetabilityへピボット。アトラクタ論(状態は戻せない)は状態逆転を撃つが、targetability(1個の表面ノブを動かす)は状態遷移不要で回避できると整理。docs/reframe_reversal_to_targetability.md新規
