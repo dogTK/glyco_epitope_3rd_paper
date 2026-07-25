@@ -1,1 +1,1 @@
-方針転換をdocs化: signature-reversalを放棄しtargetabilityへピボット。アトラクタ論(状態は戻せない)は状態逆転を撃つが、targetability(1個の表面ノブを動かす)は状態遷移不要で回避できると整理。docs/reframe_reversal_to_targetability.md新規
+山西先生との接続点(target repositioning×糖鎖酵素/エピトープ, 遺伝子摂動署名, 阻害/活性化判別)をdocs/yamanishi_collaboration.mdに記録
