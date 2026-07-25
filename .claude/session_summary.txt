@@ -1,1 +1,1 @@
-山西先生との接続点(target repositioning×糖鎖酵素/エピトープ, 遺伝子摂動署名, 阻害/活性化判別)をdocs/yamanishi_collaboration.mdに記録
+epitope potentialはGlycoMaple経路ロジックに則ると方針確定(自作の負の論理入れず、truncation含め経路フラックスで表現)を設計docに記録
