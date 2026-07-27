@@ -2,6 +2,8 @@
 
 共同研究の落とし所メモ。山西芳裕先生（名古屋大）の手法資産と、本プロジェクト（薬剤誘導 glyco-epitope 辞書）の合流点を整理する。
 
+> **Fig4採用（2026-07-28）**：下記「接続（3点）」の1が、3rd paper本体のFig4（epitope×疾患 target-repositioningマップ）として正式採用された。詳細は`docs/paper_value.md`。共同研究の話とは別に、まず自前で（既存の疾患シグネチャ基盤828疾患を使って）dryのプロトタイプを作る。
+
 ## 起点となる論文
 
 **Namba, Iwata, Yamanishi. "From drug repositioning to target repositioning:

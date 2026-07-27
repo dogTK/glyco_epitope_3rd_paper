@@ -1,1 +1,1 @@
-Siglec/免疫チェックポイント軸をエピトープ設計に追加するか議論、今回は様子見でメモのみ保留
+Fig4をMoA/ATC濃縮からepitope×疾患target-repositioningマップ(山西研framework応用)に刷新、設計docとメモリに反映

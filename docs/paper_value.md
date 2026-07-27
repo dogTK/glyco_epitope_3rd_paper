@@ -5,6 +5,10 @@
 
 > **方針転換（2026-07-25）**：signature-reversal（がんを正常へ逆位）は捨てた。状態を戻すのでなく、測れる糖鎖表面表現型(core fucose等)を"1個のノブ"として動かす＝targetabilityへ完全ピボット。詳細 `docs/reframe_reversal_to_targetability.md`。
 
+> **Fig4格下げ（2026-07-28）**：MoA/ATCクラス濃縮を「新規glyco制御標的の発見」（出口3）として主張するのはやめた。2nd paperのATC-GSEAが「神経系薬→UGT誘導／抗腫瘍薬→リソソーム誘導」という、既知のPXR/CAR誘導・化学療法性オートファジーの糖鎖版なぞりに留まり、"so what"止まりだった反省から。Fig4は独立図から降格し、Fig3内の補助パネル（エピトープ特異性チェック＝スコアが汎ストレス代理指標でないことの検証）に統合する。核である出口1+2（core fucose/AFP-L3の検出・標的化）は無傷。
+>
+> **Fig4再定義（2026-07-28）**：MoA/ATC濃縮の代わりに、**epitope×疾患の target-repositioning マップ**をFig4に据える。山西先生（名古屋大）の target repositioning 論文（Namba, Iwata, Yamanishi. *Bioinformatics* 2022, `docs/yamanishi_collaboration.md`）の inhibitory/activatory 標的判別枠を、薬剤でなくエピトープに応用し、「このエピトープはどの疾患で下げるべき/上げるべき標的か」を全疾患横断で評価する。入力は2nd paper由来のFig3a再現で既にSnowflakeにロード済みの疾患シグネチャ基盤（`RAW_DISEASE_SIGNATURES_JSON` 828疾患、`DISEASE_SIGNATURE_GENES`、`VW_FIG3A_APPROVED_DRUG_MAP` 41疾患/89薬剤）を再利用する。狙いは「HCCのfucose軸だけでは小さく見える」問題への回答——HCCは深掘りの代表例のまま、Fig4で疾患横断の広さを担保し、山西研と同じ「精度勝負でなく記述・仮説生成で価値を作る」スタンスに乗る。
+
 ## 薬でエピトープが変わると、なぜ薬理・創薬に繋がるのか（名文）
 
 糖鎖エピトープは、抗体・レクチン・免疫受容体（Siglec）・接着分子（セレクチン）・galectin といった「読み手」が、がん細胞を認識するために実際に触れる **細胞表面のインターフェース** である。だからエピトープが変われば、その細胞が「どれだけ検出できるか」「どれだけ狙えるか」「どう振る舞うか」が同時に変わる。
@@ -13,7 +17,7 @@
 
 - **検出**：薬がエピトープを増やせば、それはレクチン/抗体で測れる薬力学（PD）マーカーになる。core fucose の増加が AFP-L3 として測れるのはその実例で、薬が効いたことを非侵襲に読み出せる。
 - **標的化**：エピトープはそのまま抗体・ADC・CAR-T の標的密度である。薬がそれを増やすなら、標的療法の **感作剤**——「先に標的を濃くしてから叩く」併用——になりうる。
-- **発見**：あるエピトープを動かす薬に共通する薬効群（MoA/ATC）を辿れば、糖鎖を制御する **新しい創薬標的** が見える。
+- **発見**：あるエピトープを疾患シグネチャ横断で評価すれば、そのエピトープを **どの疾患で標的にすべきか（下げるべき/上げるべき）** が見える（山西研の target repositioning 枠をエピトープに応用）。
 - **抑制**：STn・sialyl Lewis・poly-LacNAc のような免疫回避・転移を担うエピトープを薬が下げるなら、その薬に糖鎖機構的な抗腫瘍の根拠が立つ。
 
 つまり「薬でエピトープが変わる」という一見地味な現象は、**腫瘍の"見つけやすさ・狙いやすさ・振る舞い"を薬で操作できる** という、検出・標的・発見・抑制の四つの創薬回路に直結している。治療効果そのものを主張する手前で、**標的性そのものを設計対象にする**——それがこの繋がりの核心である。
@@ -37,7 +41,7 @@ LINCS薬剤応答から全薬剤×全エピトープで初めて定量し、HCC�
 薬 → glycogene発現変化 → glyco-epitope potential 変化
                           ├─ 検出できる → バイオマーカー/PD/コンパニオン診断（例 AFP-L3=core fucose を AAL で）
                           ├─ 狙える    → 抗体/ADC/CAR-T との併用・感作（標的密度を上げてから叩く）
-                          ├─ MoA濃縮   → エピトープを動かす薬に共通する薬効群＝新規glyco制御標的の発見
+                          ├─ 疾患横断で標的評価 → epitope×疾患シグネチャでinhibitory/activatory判別＝target repositioning（山西研framework応用）
                           └─ 振る舞い変化 → STn/sialyl Lewis/poly-LacNAc を下げる＝免疫回避・転移の抑制根拠
 ```
 
@@ -54,8 +58,8 @@ LINCS薬剤応答から全薬剤×全エピトープで初めて定量し、HCC�
 
 - **Fig1** 概念：drug → glycogene → epitope potential → glyco-targetability
 - **Fig2** 辞書：epitope × 生合成遺伝子 × 認識分子（レクチン/抗体/バイオマーカー）
-- **Fig3** 薬剤×エピトープ potential heatmap（誰がどのエピトープを動かすか）
-- **Fig4** MoA/ATC濃縮（どんな種類の薬が効くか）
+- **Fig3** 薬剤×エピトープ potential heatmap（誰がどのエピトープを動かすか）＋ エピトープ特異性チェック（汎ストレス代理指標でないことの補助パネル）
+- **Fig4** epitope×疾患 target-repositioningマップ（既存疾患シグネチャ基盤828疾患を再利用、山西研 inhibitory/activatory枠を応用。誰がどのエピトープを動かすかでなく、そのエピトープをどの疾患で狙うべきか）
 - **Fig5** HCC接続：core fucose/AFP-L3・STn/TACA・Lewis/selectin・galectin の drug-epitope-modality network
 
 ## 正直な線引き（過剰主張しない）
@@ -71,4 +75,4 @@ LINCS薬剤応答から全薬剤×全エピトープで初めて定量し、HCC�
 どの出口にも効かないなら、それは論文の価値には効いていない。
 
 ---
-関連：`docs/epitope_potential_design.md`（計算方針）、`.claude/CLAUDE.md`（研究の方向性・Figure構成）、`/project-links`（進捗スライド）。
+関連：`docs/epitope_potential_design.md`（計算方針）、`docs/yamanishi_collaboration.md`（Fig4 target-repositioningの元ネタ）、`.claude/CLAUDE.md`（研究の方向性・Figure構成）、`/project-links`（進捗スライド）。
