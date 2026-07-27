@@ -3,7 +3,8 @@
   "private": true,
   "scripts": {
     "build:css": "tailwindcss -i tailwind.src.css -o tailwind.build.css --content \"*.md\"",
-    "build": "npm run build:css && marp progress_report.md -o progress_report.pdf --allow-local-files"
+    "build": "npm run build:css && marp progress_report.md -o progress_report.pdf --allow-local-files",
+    "build:pptx": "npm run build:css && marp progress_report.md -o progress_report.pptx --allow-local-files"
   },
   "devDependencies": {
     "@marp-team/marp-cli": "^4.5.0",
