@@ -1,1 +1,1 @@
-自動commit/pushの不発原因を特定(サマリー未記入+slides/未対応)、フックのgit add対象にslides/を追加して修正
+元Google SlidesからHe et al./Jeon et al.の実図を抽出してMarpスライドに埋め込み、5枚目はTailwindの2カラムレイアウトに再構成

@@ -205,7 +205,7 @@ style: |
 
 ## 糖鎖修飾のタイプと glyco-epitope
 
-<div class="placeholder">figure — He et al., Signal Transduct Target Ther 2024</div>
+![w:700](assets/he2024_glycosylation_types.jpg)
 
 <div class="caption">図: He et al., Signal Transduct Target Ther 2024 (CC BY 4.0)</div>
 
@@ -214,6 +214,9 @@ style: |
 <div class="kicker">RESEARCH CONCEPT</div>
 
 ## 研究の枠組み
+
+<div class="grid grid-cols-5 gap-6">
+<div class="col-span-3">
 
 <div class="flow">
   <div class="step"><div class="t">Drug-induced transcriptome</div><div class="s">LINCS L1000 + CycleGAN</div></div>
@@ -228,5 +231,16 @@ style: |
 </div>
 
 <div class="notes">
-<b>データ：</b>HepG2 細胞株 × LINCS L1000 薬剤応答　<b>先行：</b>2nd paper の glycogene 機能モジュールを活用　<b>図：</b>Jeon et al., BMC Bioinformatics 2022 (CC BY 4.0)
+<b>データ：</b>HepG2 細胞株 × LINCS L1000 薬剤応答
+<b>先行：</b>2nd paper の glycogene 機能モジュールを活用
+</div>
+
+</div>
+<div class="col-span-2">
+
+![w:400](assets/jeon2022_cyclegan.jpg)
+
+<div class="caption">L1000 ⇄ RNA-seq 変換（CycleGAN）<br>図: Jeon et al., BMC Bioinformatics 2022 (CC BY 4.0)</div>
+
+</div>
 </div>
