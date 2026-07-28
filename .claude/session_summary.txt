@@ -1,1 +1,1 @@
-Fig4交差細胞転用マップを否定的結果として確定(推論glycogeneに交差細胞転移情報なし、+0.05は薬剤強度の漏れ)、min射影をΔに掛ける設計誤りも特定しdocsとメモリに記録
+エピトープシグネチャUMAP(02_epitope_signature_umap.ipynb)を作成・実行、目印化合物でepitope射影がglycogeneより良い(brefeldin-a 11.3% vs 17.7%等)ことを確認、ただし全体は塊で旗の近傍は無関係薬
