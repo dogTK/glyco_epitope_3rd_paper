@@ -79,8 +79,12 @@ epitope potential は「発現の単純和」ではなく、**経路構造を反
 - **Fig 1**: 研究コンセプト — LINCS drug response → glycogene program → glyco-epitope potential → glyco-targetability
 - **Fig 2**: glyco-targetability dictionary — エピトープ × biosynthesis genes × lectin/antibody/biomarker/認識分子 対応表
 - **Fig 3**: 薬剤ごとの epitope potential heatmap — drug/MoA × glyco-epitope score
-- **Fig 4**: MoA/ATC enrichment — 特定エピトープスコア上位薬剤に濃縮するMoA/ATC
-- **Fig 5**: HCC文脈への接続 — core fucose/AFP-L3-like、STn/TACA、Lewis/selectin、galectin/poly-LacNAcなどの drug-epitope-modality network
+- **Fig 4**: **系統横断の epitope 転用可能性マップ（背骨）** — 8細胞株 × 承認薬約400、系統ごとの適応承認薬をアンカー（旗）に。同一薬ペアを内部対照として `d(薬X@乳, 薬Y@肺) < d(薬X@乳, 薬X@肺)` を判定。モック: `results/figures/mock/`
+- **Fig 5**: 系統ごとの臨床接続 — AFP-L3(肝)・CA19-9=Sialyl Lewis a(大腸/膵)・Globo-H/STn(乳)・GD2(メラノーマ) の drug-epitope-modality network。HCCはここで深掘り（PHH正常対照 + wet）
+
+> **HCCを主役から降ろした（2026-07-28）**：背骨をHCC単独から汎系統（pan-lineage）に移した。決め手は
+> 「LINCSの適応一致承認薬アンカーが HEPG2=肝 だけ0本、他系統は計16本」「臨床糖鎖バイオマーカーはHCC専有でなく系統ごとに揃う（CA19-9等）」。
+> HCCは深掘りの一例として残す（PHH 262薬というLINCS最良の正常対照があるため）。詳細は `docs/paper_value.md`。
 
 ## 外部データの位置づけ
 
