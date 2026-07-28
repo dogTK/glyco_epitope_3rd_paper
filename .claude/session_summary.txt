@@ -1,1 +1,1 @@
-先行研究PDF置き場 inputs/papers/ を作成し、PDF本体はgitignore・書誌情報はREADMEに記録する運用を設定
+inputs/papers/の山西研論文3本を精読し、疾患-疾患糖鎖類似マップがAkiyoshi 2020(Mol Inf)で既出と判明、差別化3軸を整理してCLAUDE.md・README・メモリに登録

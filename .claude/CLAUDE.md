@@ -112,6 +112,16 @@ epitope potential は「発現の単純和」ではなく、**経路構造を反
 - `../lincs_glyco_2nd_paper/` — 2nd paper（l1000-glyco env）
 - `../1st_paper/` — 1st paper
 
+## 先行研究PDF（`inputs/papers/`）
+
+**研究の方針・図構成・解析設計を考えるときは、必ず `inputs/papers/` のPDFを材料に含めること。**
+特に山西芳裕研（九大→名大）の論文群は、本プロジェクトの手法・立ち位置の直接の先行研究であり、
+「既にやられていないか」「どう差別化するか」を毎回そこで確認する。書誌一覧は `inputs/papers/README.md`。
+
+⚠ **Akiyoshi et al., Mol Inf 2020**（山西研）は、CREEDS疾患シグネチャ×glycogeneで
+**疾患-疾患の糖鎖類似度マップ（PCA/GTM）を既に発表済み**。
+疾患横断の糖鎖マップ単体は新規性にならない。差別化は「薬剤軸」「エピトープ解像度」「認識分子/標的性」の3点。
+
 ## 作図スタイル
 
 作図時は `/figure-style` skillを参照。
