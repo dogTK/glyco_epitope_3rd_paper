@@ -1,1 +1,1 @@
-先行研究PDF置き場 inputs/papers/ を作成、NotebookLM URLはログイン必須でWebFetch不可を確認
+先行研究PDF置き場 inputs/papers/ を作成し、PDF本体はgitignore・書誌情報はREADMEに記録する運用を設定

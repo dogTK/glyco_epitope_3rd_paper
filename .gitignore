@@ -54,3 +54,6 @@ credentials/
 *.pem
 *.key
 snowflake_config*
+
+# 先行研究PDF（再配布不可・容量対策でローカルのみ。書誌情報は inputs/papers/README.md に記録）
+inputs/papers/*.pdf
