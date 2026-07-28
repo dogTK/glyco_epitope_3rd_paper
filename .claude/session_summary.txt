@@ -1,1 +1,1 @@
-アンカーを二層構造に決定(Tier2=がん適応薬59本を背景の雲、Tier1=系統一致16本を旗)、Fig4の解析仕様を確定しpaper_value.mdとメモリに反映
+Fig4解析ノートブック notebooks/analytics/01_cross_lineage_epitope_transferability.ipynb を作成(二層アンカー・内部対照・推論値対照・ランドマーク対照・パネルA-D)、パイプライン芯を検証後に実行確認中
