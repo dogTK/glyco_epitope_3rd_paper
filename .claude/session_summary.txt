@@ -1,1 +1,1 @@
-疾患×エピトープ相関ネットワーク案を検討: CREEDS828は糖鎖遺伝子カバレッジ平均0.78/54で使用不可(Fig4設計にも影響)、TCGA-GTEx差し替えとエピトープ重複21列の縮約を提案
+先行研究PDF置き場 inputs/papers/ を作成、NotebookLM URLはログイン必須でWebFetch不可を確認
