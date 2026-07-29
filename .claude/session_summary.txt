@@ -1,1 +1,1 @@
-対照サンプルの絶対量でベースライン糖鎖遺伝子PCAを作成(fig_baseline_glycogene_pca)、バッチ補正後も細胞株が分散の63.9%を説明しsilhouette 0.326、THP1独立とMCF10A(正常乳腺)vs MDAMB231(乳がん)の分離を確認、ただしHEPG2はプレート4枚のみで言及不可
+ベースラインPCAが対照の種類(DMSO/vector)と時間(24h/96h)と交絡していないか検証、DMSO・24h限定でも細胞株説明率0.637(全対照0.639)で変わらず頑健と確認、notebook 03_baseline_glycogene_pca.ipynb を作成し実行確認
