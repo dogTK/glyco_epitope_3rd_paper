@@ -1,1 +1,1 @@
-集合ベース集約の実現可能性を検証: エピトープ集合は1-5遺伝子で超幾何が原理的に不成立(31/47が1遺伝子)と判明、GlycoEnzOnto経路65本でのみ成立。GLYCOENZONTO_PATHWAY_GENEをSnowflakeにロードしdocs/set_based_aggregation_feasibility.mdに記録
+経路レベルは2nd paperと重複のため使用不可と判明。特異性nullは遺伝子レベルで構築可能と整理し、31/47エピトープが単一遺伝子＝2nd paperと測定量が同一という差別化上の問題を提起、貢献の所在をFig2辞書とwet検証に移す案を提示
