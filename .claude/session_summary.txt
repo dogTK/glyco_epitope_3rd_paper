@@ -1,1 +1,1 @@
-Snowflake CoCoハンズオン記事へのKevinレビュー2点(pip install前提条件・Container Runtime notebookのロール制限)をdocsで裏取りし、挿入用注記と返信メール案を作成
+山西研LINCS論文の調査結果をinputs/papers/READMEとメモリに記録、Lim&Pavlidis2021の再現性評価も含め交差細胞の非転移性がLINCS既知性質であることを明文化
