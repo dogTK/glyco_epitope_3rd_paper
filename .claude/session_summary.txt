@@ -1,1 +1,1 @@
-Medium下書きにdocsリンクを追加し、Kevin宛の追伸メール文面を作成(Gmail権限不足で下書き作成は不可、文面のみ提供)
+山西研手法(Iwata2017/Namba2022)再現用にLINCS注釈データを整備: GEOからgene_info/sig_info/sig_metrics、KEGG RESTから372経路を取得しSnowflakeへロード、VW_GENE_SPACE/VW_SIG_QC/VW_KEGG_PATHWAY_L1000を作成、エピトープ57遺伝子中37がBINGと判明
