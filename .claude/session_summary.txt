@@ -1,1 +1,1 @@
-ベースラインPCAが対照の種類(DMSO/vector)と時間(24h/96h)と交絡していないか検証、DMSO・24h限定でも細胞株説明率0.637(全対照0.639)で変わらず頑健と確認、notebook 03_baseline_glycogene_pca.ipynb を作成し実行確認
+cp_predicted_RNAseq_profiles.gctx(171GB)をS3からリモート部分読みする経路を確立し、承認薬×細胞株の絶対量glycogene抽出を開始(24h全16株52.5GB実行中/6h中核9株を予約/PHH+HUH7は完了)。HEPG2とPHHの撮影時間が逆でHEPG2∩PHHは条件一致だと76薬剤しかない制約を発見
