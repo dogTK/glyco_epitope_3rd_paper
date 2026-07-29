@@ -1,1 +1,1 @@
-GlycoEnzOnto経路のサイズ偏り(1-2遺伝子の経路が多数)が超幾何検定の妨げになる点を指摘し、閾値決定を先にする方針を提示(ユーザー中断により作業は保留)
+集合ベース集約の実現可能性を検証: エピトープ集合は1-5遺伝子で超幾何が原理的に不成立(31/47が1遺伝子)と判明、GlycoEnzOnto経路65本でのみ成立。GLYCOENZONTO_PATHWAY_GENEをSnowflakeにロードしdocs/set_based_aggregation_feasibility.mdに記録
