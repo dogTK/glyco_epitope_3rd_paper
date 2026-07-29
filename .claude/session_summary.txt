@@ -1,1 +1,1 @@
-Medium下書き(Snowflake CoCoハンズオン記事)のpip install注記にSnowflake docsへのハイパーリンクを追加、Kevinレビュー2点の対応完了と返信案を作成
+Medium下書きにdocsリンクを追加し、Kevin宛の追伸メール文面を作成(Gmail権限不足で下書き作成は不可、文面のみ提供)
