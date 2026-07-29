@@ -1,1 +1,1 @@
-cp_predicted_RNAseq_profiles.gctx(171GB)をS3からリモート部分読みする経路を確立し、承認薬×細胞株の絶対量glycogene抽出を開始(24h全16株52.5GB実行中/6h中核9株を予約/PHH+HUH7は完了)。HEPG2とPHHの撮影時間が逆でHEPG2∩PHHは条件一致だと76薬剤しかない制約を発見
+cp_predicted gctxからの絶対量抽出が24h分完了(69918試料x385遺伝子)、PCAで細胞株が分散の63.7%・薬剤が28.3%(帰無10.8%)を説明しz-scoreの雲問題に決着。PHHが全がん株から完全分離、HEPG2 vs PHHでFUT8+1.76/MGAT5+2.48・PHH側でUGT群が高いという教科書的な差を確認。プールQCでPHHが85%脱落するバグを発見し修正
