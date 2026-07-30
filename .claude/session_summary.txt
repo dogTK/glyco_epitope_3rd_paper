@@ -1,1 +1,1 @@
-archive由来の図6フォルダ(epitope_potential_hepg2_approved_heatmap, hcc_core_fucose_approved, fig3a_epitope_projection/perdisease, hcc_epitope_reversal, reversal_ranking_benchmark)を参照確認の上で削除、reproduction由来のfig3a_repro/glycogeneは保持
+z-score由来のエピトープ図4件(fig_epitope_pca_bycell, umap_anchor/atc/strong)をresults/figures/archive/へ退避し、notebook 03/04の参照パスを更新、figure-style skillにarchive運用ルールを追記
