@@ -1,1 +1,1 @@
-results/figuresを成果物ごとの16フォルダに分割し、figure-style skillに出力先ルールとsavefig()ヘルパーを追記。フォルダ分けで効かなくなる.gitignoreをresults/figures/**パターンに修正し、notebook 03/04を再実行して検証
+archive由来の図6フォルダ(epitope_potential_hepg2_approved_heatmap, hcc_core_fucose_approved, fig3a_epitope_projection/perdisease, hcc_epitope_reversal, reversal_ranking_benchmark)を参照確認の上で削除、reproduction由来のfig3a_repro/glycogeneは保持
