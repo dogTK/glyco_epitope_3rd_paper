@@ -1,1 +1,1 @@
-3要求(創薬的価値・山西先生への説得・博論)が同じ穴を指すことを先行研究から特定し、docs/roadmap_to_thesis.mdを作成。Iwata2018が経路スコア+wet検証を完成済み・Akiyoshiが糖鎖とLINCS両方の著者のためdryでは勝てず、彼らに無いレクチン実測が唯一の勝ち筋と結論。Phase0射影順序修正→Phase1認識分子軸→Phase2 HepG2+AAL wetの順序を確定
+山西先生が指導教員(共同研究相手でない)との訂正を受け、roadmap_to_thesis.md・yamanishi_collaboration.md・paper_value.md・CLAUDE.mdと記憶3件から競合前提の記述を修正。結論(wetが3要求の収束点)は維持しつつ理由を防御から補完に、手順を『wet取得後に持参』から『Phase 0設計段階で早期相談』に変更
