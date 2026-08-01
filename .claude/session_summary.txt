@@ -1,1 +1,1 @@
-z-score由来のエピトープ図4件(fig_epitope_pca_bycell, umap_anchor/atc/strong)をresults/figures/archive/へ退避し、notebook 03/04の参照パスを更新、figure-style skillにarchive運用ルールを追記
+cp_predicted gctxから全23,614遺伝子を抽出完了(118,900試料/失敗0/3時間2分)、385版と最大差0.000000で検証。薬剤応答方向の細胞株間一致度を分割再現性で正規化して測定し、正規化cos中央値0.314(帰無-0.004)・上位16.5%が帰無の2.5倍という部分的転用性を確認、ただし強度依存が残る限界も判明
