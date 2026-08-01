@@ -1,1 +1,1 @@
-docs全13件を点検して整理: paper_value.mdを全面改稿(訂正5ブロックが積層し本文は死んだ汎系統マップを背骨として記述していた)、epitope_potential_design/epitope_supplement_rationale/HANDOFFに訂正ヘッダ、docs/README.mdで現行・根拠・訂正付き・歴史的記録に4分類。最大の問題はdocs外にあり/paper-value skillが7/25のまま4つの方針転換に取り残されていたため参照のみに変更。MGAT5がplain inferredである件を検証し測定区分のアーティファクトでないことを確認
+在野研究者でwet不可・体制は共同研究(dry=本人/wet=山西研)・先行研究と被ってよいという訂正を受け、roadmap/paper_value/README/yamanishi_collaborationと記憶3件から差別化不安を除去。wetをPhase2『依頼の設計』に書き換え(薬剤名・試薬1対1・予測の向きと大きさ・陰性対照・工数明記)、重複を理由に捨てていた経路レベル集合検定(65経路)を統計的に成立する唯一の道として再検討対象に復活。糖鎖作用薬14件の在庫確認では抽出済み1435化合物中2件のみ(HepG2 24hは0件)
