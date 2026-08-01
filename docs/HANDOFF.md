@@ -77,7 +77,11 @@
 ## 7. オープン項目（次にやること）
 
 - [ ] **HGNC review 7件の確定**（AT-1, Beta3Gal-T3, Gal-6-sulfotransferase, GalT, LA2 synthase, Sialyltransferase 3, polypeptide alpha-GalNAc-T）。confidence=medium 3件(CHST10/CHST4/CHSY3)も要チェック。
-- [ ] **Antibody / Lectin / Diseases 軸の取得**（`/epitopes/{ID}/antibody` `/lectin` `/diseases`、enzymeと同じ要領）→ Fig2 認識分子軸
+- [ ] **Antibody / Glycoprotein 軸の取得**（`/epitopes/{ID}/antibody` `/glycoprotein`、enzymeと同じ要領）→ Fig2 認識分子軸
+  - ⚠ **2026-08-02 訂正**：`/lectin` と `/diseases` は**存在しない**（`/lectin` は HTTP 404 を実地確認）。
+    実際のタブは **antibody / glycoprotein / glycolipid / enzyme / citation** の5つ。
+    レクチンは別ソース（手動キュレーション or LfDB/UniLectin）が必要。
+    網羅率は実測で 24エピトープ中21件に抗体記載・計213件と**enzymeよりはるかに密**。詳細 `docs/roadmap_to_thesis.md` Phase 1。
 - [ ] **epitope→glycogene→LINCS の接続試作**: 薬剤ごとに epitope の生合成遺伝子群の発現変化を集計 = epitope potential の最初のスコア
 - [ ] （任意）Fig3b regulome版の実装（ChIP-Atlas＋Fisher）
 

@@ -109,11 +109,64 @@ HEPG2 単独（PHH を正常対照）に絞り、次の5列だけを出す。
 
 ### Phase 1：認識分子軸を取る（Phase 0 と並行、数日）
 
-`scripts/` にあるのは enzyme スクレイパーだけで、`/epitopes/{ID}/lectin` と `/antibody` は
-2026-07-15 の HANDOFF 以来オープンのまま**未着手**。これが Fig2 であり、**差別化の本体**である。
+**やること＝「そのエピトープを物理的に何が認識するか、どのアッセイで使えるか、買えるか」を辞書化する。**
+これが無いと「エピトープが動いた」を「狙いやすさ・見つけやすさが変わった」に翻訳できず、
+31/47 が単一遺伝子である以上、2nd paper と測定量が同じに見える。
 
-これが無いと Fig2 は「エピトープ×遺伝子」止まりで、31/47 が単一遺伝子である以上、
-2nd paper と測定量が同じに見える。地図を1枚描くより、この軸を1本引く方が価値に効く。
+#### 取得元（2026-08-02 に実地確認）
+
+| タブ | 状態 | 取れる内容 |
+|---|---|---|
+| `/epitopes/{ID}/antibody` | **HTTP 200・データ豊富** | Name, Species, Category(mono/poly), Isotype, **Recognition region**（認識する糖鎖構造そのもの）、応用フラグ（**Flow cytometry / Histochemistry / ELISA-RIA / Immunoblot / Immunoprecipitation**）、**Availability**（購入先ベンダー） |
+| `/epitopes/{ID}/glycoprotein` | 200 | エピトープを担ぐキャリアタンパク質。ADC 標的の議論に効く |
+| `/epitopes/{ID}/glycolipid` | 200 | 同上（脂質側） |
+| ~~`/epitopes/{ID}/lectin`~~ | **404。タブが存在しない** | ⚠ `docs/HANDOFF.md` の「`/lectin` を enzyme と同じ要領で」は**誤り**。レクチンは別ソースが要る |
+
+**レクチンの代替ソース**：手動キュレーション（AAL/LCA=core fucose, L-PHA=β1,6分岐, E4-PHA=bisecting,
+VVA=Tn, LEL=poly-LacNAc の対応表が `docs/epitope_supplement_rationale.md` §6 に草案済み。10〜15行規模）、
+または Lectin frontier DB (LfDB, 産総研) / UniLectin。
+
+#### 実地で測った網羅率（EP0001–EP0024 を実際に取得）
+
+```
+24エピトープ中 21件に抗体記載（88%）/ 抗体 計213件（平均9件/エピトープ）
+  Flow cytometry 記載   26件 (12%)
+  Histochemistry 記載  110件 (52%)
+  購入先(Availability)  97件 (46%)
+```
+
+**辞書の中で最も密な層がここである。** 比較として enzyme タブは 173エピトープ中 117件が記載なしで、
+その疎さが core fucose/bisecting/β1,6 の手動キュレーションを強いた（`docs/epitope_supplement_rationale.md`）。
+**一番濃いデータが手つかずで残っている。**
+
+#### なぜこれが創薬的意味を供給するのか
+
+出力は **2軸のマップ**になる。
+
+```
+x軸 = druggability   そのエピトープを検出閾値以上動かす薬が何本あるか（Phase 0。既に算出：β1,6分岐 22本 / core fucose 2本）
+y軸 = targetability  認識分子が何個あるか・flowで使えるか・買えるか（Phase 1）
+```
+
+右上に来たエピトープが成果物である。そして重要なのは、**この図は遺伝子レベルに滑り落ちない**こと——
+y軸が抗体・レクチンであり、遺伝子はそれを持たないため。
+`docs/wet_target_selection.md` で問題にした「エピトープのつもりで遺伝子の話をしてしまう」drift が、
+**軸の構成によって構造的に防がれる**。
+
+さらに、いま論文は「薬が標的性を書き換える」と言いながら**標的性に単位が無い**。
+認識分子の数・アッセイ適合・入手可否は、その単位になる。wet で使う試薬もこの表から直接決まる。
+
+#### 手順
+
+1. `scripts/glycoepitope_scrape_antibody.py` — `glycoepitope_scrape_enzyme.py` の
+   「`Name` 行ごとにブロックを切る」パーサがそのまま流用できる。173件 × 0.6s ≈ 2分
+2. 同じ要領で glycoprotein / glycolipid
+3. レクチン表は手動（10〜15行）
+4. `RAW.GLYCOEPITOPE.EPITOPE_ANTIBODY` / `_LECTIN` / `_GLYCOPROTEIN` にロード
+5. Phase 0 の druggability と結合 → **Fig2 と 2軸マップ**
+
+⚠ 注意：Flow cytometry フラグは12%と疎いので、「wetで使えるか」の判定は
+DBのフラグ単独でなく Availability ＋ 文献で補うこと。DB の記載自体が古い可能性もある。
 
 ### Phase 2：wet（1〜2ヶ月）— ここが本体
 
