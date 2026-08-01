@@ -34,6 +34,9 @@ results/tables/*.csv
 results/tables/*.tsv
 results/tables/*.xlsx
 
+# 退避した解析（2026-08-02）。目録 results/_retired/README.md はローカル参照用
+results/_retired/
+
 # Obsidian app config
 .obsidian/
 
