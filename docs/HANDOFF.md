@@ -1,5 +1,19 @@
 # 引き継ぎドキュメント（2026-07-15 時点）
 
+> ## ⚠ これは歴史的記録である（2026-08-02 注記）
+>
+> 2026-07-15 時点の状況を記した文書で、**現在の方針を知る用途には使わないこと**。
+> その後 7/25・7/28・7/29・7/30・8/02 に大きな転換があり、本文の
+> 「次にやること」「オープン項目」の大半は既に決着済みまたは破棄済みである。
+> **現行の方針は `docs/roadmap_to_thesis.md` → `docs/paper_value.md`。**
+>
+> **いま読む価値があるのは §4（Snowflake資産）と §8（環境・ハマりどころ）。** ただしそこにも訂正がある：
+> - `/epitopes/{ID}/lectin` `/diseases` は**存在しない**（§7で訂正済み）
+> - 「HEPG2 ∩ PHH = 262薬」等の薬剤数は Level 5（全条件込み）の数字。
+>   条件を揃えた絶対量では **76薬**（24h/10uM）
+> - §5 が参照する `docs/repro_regulome_fig3.md` と `docs/plan_creeds_to_snowflake.md` は
+>   **リポジトリに存在しない**。再現手順が要るときは `notebooks/reproduction/01_repro_fig3a.ipynb` を直接読むこと。
+
 3rd paper（薬剤誘導性 glyco-epitope potential）に向けた、先行研究Fig3a再現とglyco-epitope辞書整備のハンドオフ。
 
 ---
