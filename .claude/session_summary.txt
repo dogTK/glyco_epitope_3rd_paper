@@ -1,1 +1,1 @@
-MDPI論文(Cancers 2022;14(4):911 Glycans as Targets for Drug Delivery in Cancer)の読了タスクをObsidianの本日ノート(notes/2026-08-05.md)に追加
+Cancers 2022;14(4):911の2.1節(がん特異的糖鎖・短縮O型糖鎖・シアリル化糖鎖)をEuropePMC全文から抽出し、箇条書き要約をnotes/2026-08-05.mdの調査結果に追記
