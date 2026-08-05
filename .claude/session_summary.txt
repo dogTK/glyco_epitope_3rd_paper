@@ -1,1 +1,1 @@
-Akiyoshi et al. Mol Inf 2020(山西研の糖鎖バイオマーカー論文)の読了タスクを、PDFパスと要点付きでnotes/2026-08-05.mdのやることに追加
+Akiyoshi et al. Mol Inf 2020 のIntroductionと3.2節(疾患間の共通性の同定)を日本語訳してチャットに出力。3.2の主張はPCA/GTM上の距離のみで検定や帰無モデルが無い点を指摘
