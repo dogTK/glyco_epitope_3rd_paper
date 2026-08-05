@@ -1,1 +1,1 @@
-ノート追記が過剰だった指摘(下位節と考察をユーザーが削除)を受け、feedback_obsidian_editingに『指定節だけ・指定分量で書く』を追記
+Cancers 2022;14(4):911の3-4章から治療応用されている糖鎖エピトープ(GD2/dinutuximab承認、Tn・STn-MUC1、SLea、CD44/CEA、AAL等レクチン、Fc糖鎖工学)を箇条書きで、承認ADC 9件のTable 1も表形式でnotes/2026-08-05.mdに追記
