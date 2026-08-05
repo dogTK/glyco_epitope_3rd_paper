@@ -1,1 +1,1 @@
-MUC1の標的としての現状を回答: NCI優先抗原2位だが承認薬ゼロ(Theratope/Stimuvax/gatipotuzumab等が失敗)、治療的に効くのはTn/STn-MUC1のglycoform特異的形。うちの辞書に担体層が無くSialyl Tnは0本だが、MUC1/COSMC/ST6GALNAC1等が23614遺伝子に揃っており担体×糖鎖の複合スコアは計算可能と整理
+MUC1の現状(STnキャリア・抗体/ワクチン/アプタマーNPの3方向・糖ペプチド特異性・承認ゼロ・担体層が辞書に無い問題)をnotes/2026-08-05.mdに追記し、GD2のA375候補という誤った記述をST8SIA1が全細胞株で床値である事実に訂正
