@@ -1,1 +1,1 @@
-GD2の辞書内容(B4GALNT1単独→上流21遺伝子、HEPG2でゲート落ち)を確認して回答し、次に読む論文 Valverde et al. Glycans in drug discovery (MedChemComm 2019) をnotes/2026-08-05.mdのネクストアクションに追加
+GD2の辞書内容(EP0061=B4GALNT1単独、上流拡張21遺伝子の深さ別表、N-Acetyl GM2と区別不能、HEPG2でゲート落ち)をnotes/2026-08-05.mdの調査結果にメモとして追記
