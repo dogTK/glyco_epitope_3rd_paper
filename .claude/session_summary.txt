@@ -1,1 +1,1 @@
-GD2認識レクチンは実用上存在せず抗体(14G2a/3F8/dinutuximab)が標準、最も近いのはSiglec-7と回答。自作辞書draftも認識分子に抗体のみ記載で整合、同ファイルのST8SIA1+B4GALNT1 2遺伝子シグネチャ文献がゲート設計(max→2遺伝子のmin)の修正根拠になると指摘
+本日ノート(notes/2026-08-08.md)をテンプレートから作成し、糖鎖が自己抗原になる病気(GBS/Miller Fisher/MMN/CANOMAD/抗MAG/PCH/寒冷凝集素症/IgA腎症)の一覧表を調査結果にメモ
