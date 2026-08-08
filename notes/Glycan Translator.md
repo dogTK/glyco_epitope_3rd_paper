@@ -7,23 +7,80 @@ tags:
 
 # Glycan Translator（推論器）
 
-## 一言でいうと
+## 研究の背景
 
-**推論器は「glycogene発現 → 糖鎖エピトープ量」の変換だけをやる。
-化学摂動（薬剤）は推論器の外に置く。**
+糖鎖の解析は、これまで **glycogene の発現レベル**で行われてきた。
+2nd paper の LINCS スクリーニングも、Akiyoshi et al. (Mol Inf 2020) の疾患-疾患マップも、
+軸は「どの糖転移酵素遺伝子が動いたか」である。
 
-推論器から見れば入力は `signature_id` 付きの glycogene ベクトルにすぎず、
-それが薬剤なのか CRISPR KO なのか疾患 RNA-seq なのかを**知らなくてよい**。
+しかし実際に抗体・レクチン・Siglec が認識し、バイオマーカーとして測られ、
+創薬の標的になるのは遺伝子ではなく **糖鎖エピトープ**（sLeX, α2,6-Sia, core fucose, GD2 …）である。
+遺伝子とエピトープの間には単純な一対一対応がなく、
+
+- 同じ工程を担うアイソ酵素が複数ある（冗長性）→ 1遺伝子が動いてもエピトープは動かない
+- 生合成が逐次的に並ぶ（律速）→ 上流が無ければ末端酵素が高くてもエピトープは出ない
+
+という構造が挟まる（[[エピトープ生成ロジック]]）。
+したがって **「遺伝子空間での解析」と「エピトープ空間での解析」は別物**であり、
+後者に移して初めて言えることがある。
+
+もう一点。既存の解析では「薬剤 → glycogene」と「glycogene → エピトープ」が
+一つの手続きの中で混ざっていた。この2つは本来独立で、後者は摂動の種類に依存しない。
+
+---
+
+## 研究の目的
+
+**glycogene 発現シグネチャを糖鎖エピトープ量のベクトルに変換する推論器（Glycan Translator）を作り、
+それを大規模な摂動データにバッチ適用して、摂動 × エピトープのスコア行列を得る。**
+
+推論器がやることは1つだけ：
 
 $$
 f:\ \text{glycogene signature} \longrightarrow \text{glycan epitope vector}
 $$
 
-を、**Glyco DB + 文献KG**を使ってできるだけ生物学的に正しく実現することだけが仕事。
+を、**Glyco DB + 文献KG** を使ってできるだけ生物学的に正しく実現する。
+入力は `signature_id` 付きの glycogene ベクトルであり、
+それが薬剤なのか CRISPR KO なのか疾患 RNA-seq なのかは推論器側では区別しない。
+
+得たいもの（＝最終成果物）は、入力行列 $X$ を変換した $Z$：
+
+$$
+X_{\text{signature}\times\text{glycogene}}
+\ \overset{\text{Translator}}{\longrightarrow}\
+Z_{\text{signature}\times\text{glycan epitope}}
+$$
+
+```text
+                 sLeX   α2,6-Sia   GD2   LacNAc   CoreFuc  ...
+Drug A / A549    +1.42    +0.82    -0.2    +1.12    -0.41
+Drug B / A549    -1.12    +0.13    +1.3    -0.62    +0.22
+Drug C / A549    +0.34    -1.72    +0.8    +0.44    -1.21
+```
+
+> 推論器そのものより、**このデータセットを作ること**が研究成果、という言い方もできる。
+> ＝ **Perturbational Glycan Epitope Atlas**。
+> 「どの薬剤がどの糖鎖エピトープを形成・抑制しそうか」を横断検索できる atlas。
+
+### この空間に移すと何が言えるか
+
+glycogene 発現空間では遠い薬剤でも、glycan epitope 空間では近づきうる。
+
+```text
+Drug A → pathway A → sLeX ↑
+Drug B → pathway B → sLeX ↑     ← 遺伝子では別物、糖鎖では同じ
+```
+
+つまり **「glycome に与える影響が似ている薬剤」** が近くなる空間になる。
+`glycogene expression space` vs `glycan epitope space` で薬剤クラスタリングが
+どう変わるかを比べること自体が、この研究の主張になる。
 
 ---
 
-## 全体像
+## 手法
+
+### 1. 全体構成
 
 ```text
               【推論器の外】
@@ -59,68 +116,16 @@ $$
 ```
 
 化合物情報（perturbation / cell / dose / time）は `SIGNATURE_METADATA` に持っておき、
-**推論の結果に後から JOIN する**。この分離により、推論器は「薬剤」という概念を持たずに済む。
+推論の結果に後から JOIN する。
 
----
+### 2. 推論器に入れる知識
 
-## 成果物は行列そのもの
-
-入力の glycogene 発現行列を $X$、出力を $Z$ とすると、
-
-$$
-X_{\text{signature}\times\text{glycogene}}
-\ \overset{\text{Translator}}{\longrightarrow}\
-Z_{\text{signature}\times\text{glycan epitope}}
-$$
-
-```text
-                 sLeX   α2,6-Sia   GD2   LacNAc   CoreFuc  ...
-Drug A / A549    +1.42    +0.82    -0.2    +1.12    -0.41
-Drug B / A549    -1.12    +0.13    +1.3    -0.62    +0.22
-Drug C / A549    +0.34    -1.72    +0.8    +0.44    -1.21
-```
-
-> 推論器そのものより、**このデータセットを作ること**が研究成果、という言い方もできる。
-> ＝ **Perturbational Glycan Epitope Atlas**。
-> 「どの薬剤がどの糖鎖エピトープを形成・抑制しそうか」を横断検索できる atlas。
-
----
-
-## なぜ epitope 空間に移すと面白いか
-
-glycogene 発現空間では遠い薬剤でも、glycan epitope 空間では近づきうる。
-
-```text
-Drug A → pathway A → sLeX ↑
-Drug B → pathway B → sLeX ↑     ← 遺伝子では別物、糖鎖では同じ
-```
-
-つまり **「glycome に与える影響が似ている薬剤」** が近くなる空間になる。
-`glycogene expression space` vs `glycan epitope space` で薬剤クラスタリングが
-どう変わるかを比べること自体が図になる。
-
-エピトープごとの drug ranking も JOIN 一発：
-
-```sql
-SELECT m.perturbation, m.cell, e.score, e.confidence
-FROM GLYCAN_EPITOPE_SCORE e
-JOIN SIGNATURE_METADATA m USING (signature_id)
-WHERE e.epitope = 'SIALYL_LEWIS_X'
-ORDER BY e.score DESC;   -- 逆順なら sLeX を下げる候補
-```
-
----
-
-## 推論器に入れる知識は2種類だけ
-
-### ① Glyco-related structured DB
-
+**① Glyco-related structured DB**
 GlycoEnzOnto / GlyGen / GlyTouCan / GlycoEpitope など。
 `gene – enzyme – reaction – substrate – product – glycan – motif – epitope – localization – dependency`
 を取る。**canonical biochemical knowledge**。
 
-### ② Literature Knowledge Graph
-
+**② Literature Knowledge Graph**
 DB では拾えない、実験的・条件依存的な知識。
 
 ```text
@@ -131,9 +136,9 @@ Reaction A ─ competes_with →         Reaction B
 ST6GAL1 ↑  ─ experimentally_assoc. → α2,6-sialylation ↑
 ```
 
----
+この2つ以外は推論器に入れない。
 
-## 実装の2形態（どちらを採るかも比較対象になる）
+### 3. 実装の2形態（どちらを採るかも比較対象）
 
 ```text
 [LLM推論型]                      [ルールコンパイル型]
@@ -150,9 +155,7 @@ epitope score                    deterministic reasoner
 
 後者のほうが再現性は高い。**どちらを採用するか自体を研究として比較できる。**
 
----
-
-## 出力テーブルは3枚に分ける
+### 4. 出力テーブル（3枚に分ける）
 
 | テーブル | 中身 | 主なカラム |
 |---|---|---|
@@ -169,14 +172,22 @@ SIG001 | sLeX | B4GALT1 | R789 | +0.31
 
 これで「sLeX score = +1.42」だけでなく **「なぜ +1.42 なのか」まで追える**。
 
----
-
-## 下流でできること
+### 5. 下流解析
 
 `EPITOPE_SCORE` が出来た時点から先は、普通のオミクス解析になる：
 PCA / UMAP / hierarchical clustering / chemical clustering / epitope clustering /
 cosine similarity / target glycan への距離 / drug ranking / cell-line consistency /
 dose-response / time-course / drug class enrichment / MoA enrichment。
+
+エピトープごとの drug ranking は JOIN 一発：
+
+```sql
+SELECT m.perturbation, m.cell, e.score, e.confidence
+FROM GLYCAN_EPITOPE_SCORE e
+JOIN SIGNATURE_METADATA m USING (signature_id)
+WHERE e.epitope = 'SIALYL_LEWIS_X'
+ORDER BY e.score DESC;   -- 逆順なら sLeX を下げる候補
+```
 
 ---
 

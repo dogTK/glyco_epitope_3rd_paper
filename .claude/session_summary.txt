@@ -1,1 +1,1 @@
-議論した推論器(Glycan Translator)設計をObsidianノート化: notes/Glycan Translator.md を新規作成し、本日ノートから参照リンクを追加
+notes/Glycan Translator.md を「研究の背景/目的/手法」構成に書き直し(化学摂動が推論器の外という点の強調は削除)、本日ノートの要約も同構成に更新
