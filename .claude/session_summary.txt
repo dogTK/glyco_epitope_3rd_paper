@@ -1,1 +1,1 @@
-eliglustatはLINCS全体(1,805,898シグネチャ/33,609摂動)に存在しないことを確認。代わりにmiglustatが263本(HT29 24本・HUH7 3本、HEPG2は無し)。ただしmiglustatは力価と特異性で代用にならず、より本質的に両者とも酵素阻害剤で転写を変えないためmRNAベースのepitope potentialでは原理的に捉えられない点を指摘
+議論した推論器(Glycan Translator)設計をObsidianノート化: notes/Glycan Translator.md を新規作成し、本日ノートから参照リンクを追加
